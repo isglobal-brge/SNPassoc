@@ -1,0 +1,202 @@
+v1.9-2
+2014-04-22
+- fixed bug in tableHWE function (see e-mail from Martin Rijlaarsdam)
+
+v1.9-1
+2013-09-05 (after being removed from CRAN)
+- mclapply with parallel
+- fixed problems with gfotran (scanWGassociation changes)
+
+v1.9-0
+2013-09-05 
+- mclapply
+
+v1.8-5
+2012-12-17 
+- bug fixed: spandSetupSNP function deals properly with 100% missing genotypes
+
+v1.8-4
+2012-05-12 
+- change: scanWGassociation (.Internal problems see e-mail from B. Ripley)
+- change: other Warnings after checking the package using R-1.5.1
+
+v1.8-3
+2012-05-09 
+- anova.glm labels (see Peter's e-mail) also changed in interactionPval function
+
+v1.8-2
+2012-05-03 
+- Dropped dependency on goat by adding trim and interleave
+
+v1.8-1
+2011-11-22 (Changes to R-2.14.0)
+- require has been removed from firstlib function
+- HapMap.rda has been resaved using better compression tools::resaveRdaFiles()
+- anova.glm does not returns "P(>|Chi|)"[2]  ->  changed to  t1[2, grep("^P.*Chi",names(t1))] (Peter's e-mail)
+     - functions changed: intervals.dif, intervals.or, table.interaction, interactionPval
+
+v1.8-0
+2011-09-14
+- bug fixed: problems when only 1 SNP is analyzed (see Victor's e-mail)
+- bug fixed: summary.snp does not compute the HWE when only two genotypes are available (see Victor's e-mail)
+
+v1.7-0
+2011-02-28
+- bug fixed: problem with heterozygous codes (see Ross Whetten's e-mail)
+- added: a new function to compute the exact probability of a genetic score
+
+v1.6-1
+2010-09-26
+- added: some extra-code to consider G-statistic equal to 0 after Jiexun's comment
+
+v1.6-0
+2009-07-17
+- changed: labels of plots for p-values (-log[10])
+
+v1.5-9
+2009-07-04
+- changes in [.WGassociation 
+- added: GenomicControl now deals with 2 d.f. chi-square test (e.g., codominant)
+- changes in plot.WGassociation 
+
+v1.5-8
+2009-03-09
+- changed: NAMESPACE includes methods for LD
+
+v1.5-7
+2009-03-04
+- print.LD file added
+
+v1.5-6
+2009-02-06
+- Changes in .Rd files to pass 'Rd files against version 2 parser' (R version 2.9.0)
+
+v1.5-5
+2008-12-12
+- changed: 'association.fit' and 'association' to incorporate the possibility of using other arguments included in 'glm' function such as 'weigths'. Question posted by Ane Marie Closter
+
+-changed: 'plot.WGassociation' to show -log_10(p-values) instead of -log_10(p-values). Question posted by 
+
+
+v1.5-4
+2008-05-29
+- changed: 'association.fit' problems with factors and levels to determine when a snp is monomorphic [table(as.character(var)) instead of length(levels(var)) ]
+
+
+v1.5-3
+2008-04-29
+- modified: intervals.haplo.glm.R
+- added: summary and print for LD objects
+- modified: Bonferroni.sig (number of tests when no monomorphic SNPs) 
+- added: 'gdata' dependence
+
+v1.5-2
+2008-04-22
+- added: LD functions adapted from LDplot in package genetics by Gregory Warnes et al.
+
+v1.5-1
+2008-03-27
+- change in tableHWE to correct deal with strata option
+- expandsetupSNP.R has been modified
+- summary.snp has been modified and print.summary.snp has been created and added to the NAMESPACE
+
+v1.4-9
+2007-10-16
+- modified: expandsetupSNP.R to show alleles sorted by frequency when summary of an object of class 'setupSNP' is executed
+- changed: e-mail address of the maintainer
+- removed: obsolete markup \non_function{}
+
+v1.4-8
+2007-05-21
+- mvtnorm is required (change in DESCRIPTION, NAMESPACE and firstlib.R)
+- added: new generic function maxstat (to compute asymptotic p values for max-statistic) and some methods
+- added: function for inspecting overdispersion due to population substructure (qqpval)
+- added: function for correcting the p values using genomic control (GenomiControl)
+- added: example in the Rd file for odds function
+- added: argument nIndiv in association.fit (to deal with genotypeRate properly). association has also been changed (look for 'nSubject')
+- minor change in the function snp (when snp is applied to an object of class snp)
+- added: reference of SNPassoc to some .Rd files
+
+v1.4-7
+2007-05-17
+- bug fixed: overdominant returned wrong levels (thanks to Nicholas Orr)
+
+2007-05-02
+- bug fixed: [<-.setupSNP  added any variable as new SNP, but could be a covariate
+- bug fixed: odds returns NA for monomorphic SNPs
+- bug fixed: association.fit detected monomorphic SNPs that were not so
+
+2007-04-02
+-bug fixed: c.WGassociation when more than 2 files were combined
+-bug fixed: [.WGassociation when rows/columns were selected by name wrong selection was done
+-bug fixed: [.WGassociation now also subsets permuted SNPs if available
+-changed: [.setupSNP should be faster and preserve snp attributes
+-changed: glm2 in table.corner updated to avoid warnings if response was factor
+-new function odds to extract odds ratios, 95% CI and p values for a given model from an WGassociation object
+-new function [.snp, version of factor that preserves attributes
+-new function print.snp
+
+
+v1.4-6
+2007-03-22
+- change in 'association' function to deal with SNP with 0% of genotype rate (e.g. all missing) when ajusted models are fitted
+
+v1.4-5
+2007-03-20
+- bug fixed in the output labels for overdominant model
+
+v1.4-4
+2007-03-02
+- bug fixed in the function 'intervals.haplo.glm'
+- added new functions: codominant.snp, dominant.snp, recessive.snp, overdominant.snp 
+- [.WGassociation is able to select using logical statements 
+- [.setupSNP recover 'allele.labels' from the SNPs
+- perm.Test changed options(warn=-1) to avoid waning messages to fit the beta distribution
+
+v1.4-3
+2007-01-22
+- removed the file Makevars.win to ../src 
+- changed SNPassoc.f to be compiled using g77
+- \usage sections for 'SNPassoc-internal' 'plot.WGassociation' and 'snp' have been fixed for S3 methods
+
+v1.4-2
+2007-01-19
+- added the file Makevars.win to ../src 
+
+v1.4-1
+2007-01-17
+- minor changes in scanWGassociation
+- implemented rank truncated product in permTest function
+
+v1.4
+2006-12-12
+- minor changes in print.WGassociation 
+- zzz.R is replaced by firstlib.R
+- firstlib.R calls to a Fortran dll
+- created a Fortran program SNPassoc.f which is called from scanWGassociation
+- added a new argument to scanWGassociation function called "nperm"
+- added a new function called permTest to extract p values from permutation test obtained using scanWGassociation function
+- added methods for objects of class "permTest"
+
+v1.3  
+2006-11-27
+- snp, summary.snp and expandsetupSNP fixed to deal with SNP with 100% missing information
+
+2006-11-26
+- manual for WGstats moved to WGassociation
+- summary.GWassociation (previous WGstats) fixed
+
+2006-11-25
+- interactionPval now accepts only response and asumes formula response~1
+- summary.WGassociation and WGstats swapped
+- summary.WGassociation generates output even if no info is supplied (whole dataset)
+
+2006-11-23
+- added methods for extraction and modification of setupSNP and WGassociation objects 
+- genetic model functions generic
+- methods: default: recode (accepts snp, numeric, factor or character max 3 values)
+		  WGassociation: extracts pvalues for that model
+
+
+
+

@@ -1,0 +1,146 @@
+export(
+snp,
+setupSNP,
+plotMissing,
+tableHWE,
+WGstats,
+WGassociation,
+scanWGassociation,
+getSignificantSNPs, 
+Bonferroni.sig,
+association,
+additive,
+codominant,
+dominant,
+overdominant,
+odds, 
+recessive,
+pvalues,
+intervals,
+int, 
+interactionPval,
+make.geno,
+haplo.interaction,
+permTest,
+qqpval,
+GenomicControl,
+maxstat,
+LD,
+LDplot,
+LDtable
+)
+
+import("haplo.stats")
+import("survival")
+import("mvtnorm")
+importFrom(stats, reorder)
+#import("gdata")
+
+
+S3method(summary,haplo.glm)
+S3method(intervals,haplo.glm)
+S3method(intervals,dif)
+S3method(intervals,or)
+
+S3method(print,haploOut)
+S3method(print,intervals)
+S3method(print,snpOut)
+S3method(print,tableHWE)
+
+S3method(codominant,default)
+S3method(dominant,default)
+S3method(recessive,default)
+S3method(overdominant,default)
+S3method(additive,default)
+
+S3method(codominant,snp)
+S3method(dominant,snp)
+S3method(recessive,snp)
+S3method(overdominant,snp)
+S3method(additive,snp)	
+S3method(plot,snp)
+S3method(reorder,snp)
+S3method(summary,snp)
+S3method(print,snp)
+S3method("[",snp)
+
+S3method(print,summary.snp)
+
+
+S3method(plot,SNPinteraction)
+S3method(print,SNPinteraction)
+
+S3method(summary,setupSNP)
+S3method("[",setupSNP)
+S3method("[[<-",setupSNP)
+S3method("[<-",setupSNP)
+S3method("$<-",setupSNP)
+S3method(labels,setupSNP)
+S3method(plot,setupSNP)
+
+
+S3method(summary,WGassociation)
+S3method(print,WGassociation)
+S3method(plot,WGassociation)
+S3method(pvalues,WGassociation)
+S3method(codominant,WGassociation)
+S3method(dominant,WGassociation)
+S3method(recessive,WGassociation)
+S3method(overdominant,WGassociation)
+S3method(additive,WGassociation)
+S3method("[",WGassociation)
+S3method(c,WGassociation)
+
+S3method(labels,WGassociation)
+
+S3method(print,permTest)
+S3method(plot,permTest)
+
+S3method(print,maxstat)
+S3method(maxstat,default)
+S3method(maxstat,table)
+S3method(maxstat,setupSNP)
+S3method(maxstat,matrix)
+
+S3method(dscore,default)
+S3method(dscore,setupSNP)
+
+S3method(LD,snp)
+S3method(LD,setupSNP)
+
+S3method(print,LD)
+S3method(print,LD.data.frame)
+S3method(summary,LD.data.frame)
+S3method(print,summary.LD.data.frame)
+
+##################
+# hidden functions
+
+# as.snp 
+# is.Monomorphic
+# is.quantitative
+# is.snp 
+# association.fit
+
+# crea.lab 
+# expandsetupSNP
+# extractPval
+# extractPval.i
+# GenotypeRate
+# haplo.inter.fit
+
+# orderChromosome
+
+# SNPHWE 
+# sortSNPs 
+# table.corner
+# table.interaction 
+# togeno 
+# Table.N.Per
+# Table.mean.se
+
+# pvalTest
+# modelTest
+# assoc
+
+

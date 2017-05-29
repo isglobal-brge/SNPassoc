@@ -1,0 +1,21 @@
+Urgente:
+- association should p values for all models even if df (codominant) ==1
+
+
+No tanto:
+- Documentation
+  	follow R etiquete
+
+- plot.setupSNP
+ 	could plot LD
+
+- haplo 
+	calls haplo.glm or haplo.interaction and prints nice 
+
+- Survival as response
+
+- tableHWE(x,strata)
+	buscar strata en x
+
+- summary(setupSNP, strata)
+	HWE en controles
