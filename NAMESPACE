@@ -27,14 +27,16 @@ GenomicControl,
 maxstat,
 LD,
 LDplot,
-LDtable
+LDtable,
+dscore
 )
 
 import("haplo.stats")
 import("survival")
 import("mvtnorm")
 importFrom(stats, reorder)
-#import("gdata")
+import("poisbinom")
+import("parallel")
 
 
 S3method(summary,haplo.glm)
@@ -112,6 +114,7 @@ S3method(print,LD)
 S3method(print,LD.data.frame)
 S3method(summary,LD.data.frame)
 S3method(print,summary.LD.data.frame)
+
 
 ##################
 # hidden functions

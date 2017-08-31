@@ -1,2 +1,0 @@
-FCFLAGS = -g -O2 -mtune=native -fbounds-check
-FFLAGS = -g -O2 -mtune=native -fbounds-check
