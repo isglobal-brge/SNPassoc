@@ -1,5 +1,5 @@
 Package: SNPassoc
-Version: 1.9-2
+Version: 1.9-6
 Date: 2017-09-01
 Depends: R (>= 3.0.0), haplo.stats, survival, mvtnorm, parallel, poisbinom
 Title: SNPs-based whole genome association studies
