@@ -49,6 +49,7 @@ S3method(print,haploOut)
 S3method(print,intervals)
 S3method(print,snpOut)
 S3method(print,tableHWE)
+S3method(print,WGstats)
 
 S3method(codominant,default)
 S3method(dominant,default)

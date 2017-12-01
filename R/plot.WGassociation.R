@@ -85,16 +85,8 @@ function (x, alpha = 0.05, plot.all.SNPs = FALSE, print.label.SNPs = TRUE,
                 pvalues <- xx[!is.na(xx)]
                 cut.p <- alpha/length(pvalues)
                 cut.trans <- -log(cut.p,10)
-                if (cut.trans > max(xx, na.rm = TRUE)) {
-                  cat("Warning: No SNP is statistically significant after \n         Bonferroni Correction under",
-                    models[i], "model \n")
-                }
-#                else {
-                  segments(1, cut.trans, length(xx), cut.trans, 
-                    col = "red", lty = 2)
-#                }
+                segments(1, cut.trans, length(xx), cut.trans, col = "red", lty = 2)
                 ok <- ok + 1
-        #    }
         }
         if (ok < n.models) 
             plot(1:3, rep(1, 3), type = "n", axes = FALSE, xlab = "", 
