@@ -8,7 +8,7 @@ function (object, ...)
        stop("\n summary is implemented only for 'WGassociation' function")
 
     ans <- attr(object,"tables")
-    mostattributes(x)<-NULL
+    mostattributes(ans)<-NULL
     ans
 }
 
