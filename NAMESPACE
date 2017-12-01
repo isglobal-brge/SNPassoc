@@ -28,7 +28,8 @@ maxstat,
 LD,
 LDplot,
 LDtable,
-dscore
+dscore,
+getGeneSymbol
 )
 
 import("haplo.stats")
