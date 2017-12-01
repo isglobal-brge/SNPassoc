@@ -29,13 +29,12 @@ info$names <- names(target)[ info$QUERYID ]
 info <- info[ , c("names", "seqnames", "start", "end", "LOCATION", "GENEID", "PRECEDEID", "FOLLOWID")]
 info <- unique(info)
 
-Symbol2id <- as.list( org.Hs.egSYMBOL2EG )
+Symbol2id <- as.list( get("org.Hs.egSYMBOL2EG", envir=.GlobalEnv ))
 id2Symbol <- rep( names(Symbol2id), sapply(Symbol2id, length) )
 names(id2Symbol) <- unlist(Symbol2id)
  
 x <- unique( with(info, c(levels(GENEID), levels(PRECEDEID), levels(FOLLOWID))) )
-table( x %in% names(id2Symbol) ) # good, all found
- 
+
 info$GENESYMBOL <- id2Symbol[ as.character(info$GENEID) ]
 info$PRECEDESYMBOL <- id2Symbol[ as.character(info$PRECEDEID) ]
 info$FOLLOWSYMBOL <- id2Symbol[ as.character(info$FOLLOWID) ]
@@ -45,3 +44,4 @@ temp <- which(names(df)%in%c("chr","pos"))
 out <- merge(ans, df[, -temp, drop=FALSE], by.x="names", by.y="rsid")
 out
 }
+
