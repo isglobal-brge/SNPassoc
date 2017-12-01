@@ -27,6 +27,7 @@
 \alias{additive.default}
 \alias{trim}
 \alias{interleave}
+\alias{getTableSNP}
 
 
 \title{Internal SNPstat functions}
@@ -49,6 +50,8 @@ modelTest(X,Y,quantitative,type,genotypingRate)
 assoc(y,x,test="lrt",quantitative)
 trim(s)
 interleave(..., append.source=TRUE, sep=": ", drop=FALSE)
+getTableSNP(x)
+
 \method{codominant}{default}(o)
 \method{dominant}{default}(o)
 \method{recessive}{default}(o)
