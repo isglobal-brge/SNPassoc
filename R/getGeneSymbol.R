@@ -42,6 +42,6 @@ info$FOLLOWSYMBOL <- id2Symbol[ as.character(info$FOLLOWID) ]
 ans <- info[, c("names", "seqnames", "start", "LOCATION", "GENESYMBOL", "GENEID")]
 names(ans)[3] <- "position"
 temp <- which(names(df)%in%c("chr","pos"))
-out <- merge(ans, df[,-temp], by.x="names", by.y="rsid")
+out <- merge(ans, df[, -temp, drop=FALSE], by.x="names", by.y="rsid")
 out
 }
