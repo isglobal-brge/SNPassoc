@@ -5,6 +5,7 @@
 \alias{maxstat.setupSNP}
 \alias{maxstat.matrix}
 \alias{print.maxstat}
+\alias{head.maxstat}
 
 \title{max-statistic for a 2x3 table}
 \description{
@@ -21,6 +22,7 @@ maxstat(x, \dots)
 
 \method{maxstat}{matrix}(x, \dots)
 
+\method{maxstat}{head}(x, n=5, \dots)
 }
 \arguments{
   \item{x}{a numeric matrix with 2 rows (cases/controls) and 3 colums (genotypes) or a vector with case/control status
@@ -31,6 +33,7 @@ maxstat(x, \dots)
   \item{colSNPs}{a vector indicating which columns contain those SNPs to compute max-statistic. By default
                  max-statistic is computed for those SNPs specified when the object of class 'setupSNP' was
                  created.}
+  \item{n}{a positive integer. Number or SNPs to be shown.}
 
   \item{\dots}{further arguments to be passed to or from methods.}
 }

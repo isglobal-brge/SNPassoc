@@ -108,6 +108,7 @@ S3method(maxstat,default)
 S3method(maxstat,table)
 S3method(maxstat,setupSNP)
 S3method(maxstat,matrix)
+S3method(maxstat,head)
 
 S3method(dscore,default)
 S3method(dscore,setupSNP)
