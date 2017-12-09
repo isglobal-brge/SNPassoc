@@ -15,6 +15,7 @@ getNiceTable <- function(x)
       tt <- rbind(tt, aux)
      }
     colnames(tt)[c(1,7,8)] <- c("SNP", "IC95%", "p-value")
+    colnames(tt) <- gsub("%", "\\\\%", colnames(tt))
     tt2 <- gsub("NA","",  tt)
     ans <- gsub("\\(  -  \\)","",  tt2)
     attr(ans, "nlines") <- nlines

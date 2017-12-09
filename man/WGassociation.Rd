@@ -51,7 +51,7 @@
                   Default is 80\%.}
   \item{level}{signification level for confidence intervals. Defaul 95\%.}
   \item{...}{Other arguments to be passed through glm function}
-  \item{x} An object of class 'WGassociation'
+  \item{x}{An object of class 'WGassociation'}
 }
 
 \details{
