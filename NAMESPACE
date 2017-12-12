@@ -39,7 +39,7 @@ import("haplo.stats")
 import("survival")
 import("mvtnorm")
 importFrom(stats, reorder)
-import("poisbinom")
+#import("poisbinom")
 import("parallel")
 
 
