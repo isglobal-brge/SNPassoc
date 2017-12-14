@@ -32,7 +32,8 @@ LDtable,
 dscore,
 getNiceTable,
 getGeneSymbol,
-related
+related,
+getLocusInfo
 )
 
 import("haplo.stats")
