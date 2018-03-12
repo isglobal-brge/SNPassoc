@@ -1,3 +1,7 @@
+v1.9-7
+2018-03-12
+Several changes (dscore, functions for the book, ...). Now version in GitHub
+
 v1.9-2
 2014-04-22
 - fixed bug in tableHWE function (see e-mail from Martin Rijlaarsdam)

@@ -112,6 +112,7 @@ S3method(maxstat,setupSNP)
 S3method(maxstat,matrix)
 
 S3method(dscore,default)
+S3method(dscore,character)
 S3method(dscore,setupSNP)
 
 S3method(LD,snp)
