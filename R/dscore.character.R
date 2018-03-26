@@ -20,6 +20,7 @@ dscore.character <- function(x, ...){
   }
   x.info <- x[x%in%snpInfo$refsnp_id]    
   snpInfo <- snpInfo[x.info,]
+  rownames(snpInfo) <- snpInfo$refsnp_id
   mafs<-snpInfo$minor_allele_freq
   ans <- dscore(mafs)
   attr(ans, "MAFs") <- snpInfo
