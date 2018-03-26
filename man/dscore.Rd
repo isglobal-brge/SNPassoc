@@ -3,6 +3,7 @@
 \alias{dscore.default}
 \alias{dscore.character}
 \alias{plot.dscore}
+\alias{pscore}
 
 
 \title{Exact distribution of a genetic score}
@@ -16,9 +17,12 @@ dscore(x, \dots)
 
 \method{dscore}{character}(x, \dots)
 
+pscore(q, x, \dots)
+
 }
 \arguments{
   \item{x}{a numeric vector containing either the minor allele frequencies (MAF) of the SNPs used to created the genetic score or the names of the SNPs.}
+  \item{q}{quantile}
   \item{\dots}{further arguments to be passed to useMart function from biomaRt (not necessary).}
 }
 \references{

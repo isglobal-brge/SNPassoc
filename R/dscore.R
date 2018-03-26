@@ -8,3 +8,9 @@ plot.dscore <- function(x, ...) {
        ylab="exact probability", col="red", lwd=2)
   
 }
+
+pscore <- function(q, x, ...){
+  gs <- dscore(x, ...)
+  ans <- sum(gs[1:(q+1)])
+  ans
+}

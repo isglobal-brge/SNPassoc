@@ -1,3 +1,4 @@
+useDynLib(SNPassoc, .registration = TRUE)
 
 export(
 snp,
@@ -39,9 +40,26 @@ getLocusInfo
 import("haplo.stats")
 import("survival")
 import("mvtnorm")
-importFrom(stats, reorder)
-#import("poisbinom")
-import("parallel")
+importFrom("stats", "reorder")
+importFrom("poisbinom", "dpoisbinom" )
+importFrom("parallel", "mclapply")
+importFrom("plyr", "arrange", "count")
+importFrom("biomaRt", "getBM", "useMart")
+
+
+importFrom("grDevices", "heat.colors")
+importFrom("graphics", "abline", "axis", "barplot", "hist", "image",
+             "layout", "legend", "lines", "matplot", "par", "plot",
+             "segments", "strheight", "strwidth", "text", "title")
+importFrom("stats", ".getXlevels", "AIC", "anova", "as.formula",
+             "binomial", "complete.cases", "dbeta", "density",
+             "fisher.test", "gaussian", "glm", "glm.control", "glm.fit",
+             "is.empty.model", "median", "model.extract", "model.matrix",
+             "model.offset", "model.response", "model.weights",
+             "na.omit", "nlm", "optimize", "pchisq", "pnorm",
+             "printCoefmat", "qbeta", "qchisq", "qnorm", "relevel",
+             "runif", "sd", "terms")
+importFrom("utils", "write.table")
 
 
 S3method(summary,haplo.glm)
@@ -105,7 +123,6 @@ S3method(print,permTest)
 S3method(plot,permTest)
 
 S3method(print,maxstat)
-S3method(head,maxstat)
 S3method(maxstat,default)
 S3method(maxstat,table)
 S3method(maxstat,setupSNP)

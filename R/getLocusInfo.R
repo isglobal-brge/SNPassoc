@@ -1,4 +1,13 @@
-getLocusInfo <- function(x, annotation, file, candidate, size=1e5, ...){
+#' Get info from snpStats objects to be passed to Locus Zoom
+#' 
+#' @param x an object of class 'GlmTests'
+#' @param annotation a data.frame having annotation (obtained from PLINK files)
+#' @param file saved file
+#' @param candidate candidate SNPs (top one)
+#' @param size window size
+#' @return file having the required information of Locus Zoom
+
+getLocusInfo <- function(x, annotation, file, candidate, size=1e5){
  if(!inherits(x, "GlmTests"))
    stop("x must be an object of class 'GlmTests")
  if (missing(file))

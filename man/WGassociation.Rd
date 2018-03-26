@@ -28,6 +28,7 @@
    WGassociation(formula, data, model = c("all"), 
                  quantitative = is.quantitative(formula, data),
                  genotypingRate = 80, level = 0.95, ...)
+  WGstats(object, ...)               
 }
 
 \arguments{
@@ -51,7 +52,7 @@
                   Default is 80\%.}
   \item{level}{signification level for confidence intervals. Defaul 95\%.}
   \item{...}{Other arguments to be passed through glm function}
-  \item{x}{An object of class 'WGassociation'}
+  \item{object}{An object of class 'WGassociation'}
 }
 
 \details{

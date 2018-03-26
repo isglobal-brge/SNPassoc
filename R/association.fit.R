@@ -1,5 +1,6 @@
 `association.fit` <-
-function (var, dep, adj, quantitative, type, level, nIndiv, genotypingRate=0, ...) 
+function (var, dep, adj, quantitative, type, level, nIndiv, 
+          genotypingRate=0, ...) 
 {
 
     if (!quantitative) {

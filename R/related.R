@@ -1,3 +1,7 @@
+#' Get related samples
+#' 
+#' @param x An object obtained from SNPrelate package.
+#' @return A matrix with related individuals.
 related <- function(x) {
   ans <- NULL
   while(nrow(x)>0) {

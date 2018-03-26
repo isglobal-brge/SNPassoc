@@ -1,18 +1,15 @@
+#' Get gene symbol from a list of SNPs
+#' 
+#' @param x data.frame containing: SNP name, chromosome and genomic position.
+#' @param snpCol column of x having the SNP name. Default is 1.
+#' @param chrCol column of x having the SNP chromosome. Default is 2.
+#' @param posCol column of x having the SNP position. Default is 3.
+#' @param db reference genome. Default is 'TxDb.Hsapiens.UCSC.hg19.knownGene'
+#' @return a data.frame having initial information and gene symbol
+
+
 getGeneSymbol <- function(x, snpCol=1, chrCol=2, posCol=3, 
-                          db=TxDb.Hsapiens.UCSC.hg19.knownGene, ...) {
-
-#
-# x is a data.frame containing three columns:
-#    rsid: rs number
-#    chr: chromosome (annotated as chr1, chr2, chr3, ..., chrX, chrY)
-#    pos: genomic position
-# By default they are located in 1st, 2nd and 3rd column - they can be changes by using
-# snpCol, chrCol, posCol  
-
-# NOTE: human genome version in argument db should match with the annotation used in 
-#  the 'x' argument
-
-# Acknowledgment: Source code modified from Adai's post 
+                          db=TxDb.Hsapiens.UCSC.hg19.knownGene) {
 
 df <- x[,c(snpCol, chrCol, posCol)]
 names(df) <- c("rsid", "chr", "pos")
