@@ -1,8 +1,8 @@
 Package: SNPassoc
-Version: 1.9-8
-Date: 2018-03-20
-Depends: R (>= 3.4.0)
-Imports: haplo.stats, mvtnorm, parallel, survival, biomaRt, plyr, poisbinom
+Version: 2.0-0
+Date: 2019-05-06
+Depends: R (>= 3.5.0)
+Imports: haplo.stats, mvtnorm, parallel, survival, biomaRt, tidyverse, poisbinom
 Suggests: testthat, knitr, BiocStyle, rmarkdown
 Title: SNPs-based whole genome association studies
 Author: Juan R Gonzalez and Victor Moreno
