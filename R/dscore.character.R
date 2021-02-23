@@ -11,6 +11,8 @@ dscore.character <- function(x, ...){
                               "minor_allele_freq"),
                             filters = c("snp_filter"),
                             values = x, mart = snpmart)
+  
+  snpInfo <- subset(snpInfo, chr_name%in%c(1,22,"X", "Y"))
     
   rownames(snpInfo) <- snpInfo$refsnp_id
   
