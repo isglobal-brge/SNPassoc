@@ -1,5 +1,5 @@
 `summary.setupSNP` <-
-function(object, print=TRUE, ...)
+function(object, ...)
  {
   if (!inherits(object, "setupSNP")) 
         stop("object must be an object of class 'setupSNP'")
@@ -17,13 +17,11 @@ function(object, print=TRUE, ...)
   dimnames(ans)[[1]] <- attr(object,"label.SNPs")
   out<-as.matrix(ans)
   dimnames(out)[[2]][4] <- "missing (%)"
-  if (print)
-   print(out, quote=FALSE, na.print="-")
+  print(out, quote=FALSE, na.print="-")
   } else {
     class(object)<-"data.frame"
     ans<-summary(object)
-    if (print)
-     print(ans)
+    print(ans)
   }
   invisible(ans)
  }

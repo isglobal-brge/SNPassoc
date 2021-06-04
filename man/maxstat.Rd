@@ -42,7 +42,8 @@ Sladek R, Rocheleau G, Rung J et al. A genome-wide association study identifies 
 
 }
 \value{
-  A matrix with the chi-square statistic for dominant, recessive, log-additive and max-statistic and its asymptotic p-value. 
+  A matrix with the chi-square statistic for dominant, recessive, log-additive and max-statistic and 
+  its asymptotic p-value. 
 }
 \seealso{
   \code{\link{setupSNP}}

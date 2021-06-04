@@ -12,11 +12,12 @@
 
 \arguments{
   \item{x}{ an object of class 'WGassociation'}
+  \item{\dots}{other graphical parameters }
 }
 \details{
   A panel with different plots (one for each mode of inheritance) are plotted. Each of them represents 
   the -log(p value) for each SNP. Two horizontal lines are also plotted. One one them indicates the nominal 
-  statistical significance level (see 'alpha' argument) whereas the other one indicates the statistical 
+  statistical significance level whereas the other one indicates the statistical 
   significance level after Bonferroni correction.
 }
 

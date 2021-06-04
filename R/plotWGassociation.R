@@ -4,16 +4,15 @@ plot.WGassociation <- function(x, ...){
   
   xx <- data.frame(SNP=rownames(x), data.frame(x)[,2:6])
   names(xx)[6] <- "additive"
-  dat <- tidyr::gather(xx, key="model", 
-                      value="p.value", -SNP)
+  dat <- tidyr::gather(xx, key="model", value="p.value", -"SNP")
   dat$model <- factor(dat$model, 
                       levels=c("codominant", "dominant",
                                "recessive", "overdominant",
                                "additive"))
   
-  plt <- ggplot(dat, aes(x=SNP, y=-log10(p.value))) + 
+  plt <- ggplot(dat, aes(x=dat$SNP, y=-log10(dat$p.value))) + 
     geom_point() +
-    xlab("SNPs") + ylab(expression(-log[10](p-value))) +
+    xlab("SNPs") + ylab(expression(-log[10]("p-value"))) +
     theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
     geom_hline(aes(yintercept = -log10(0.05), 
                linetype = "Nominal"), 

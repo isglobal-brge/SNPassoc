@@ -1,2 +1,0 @@
-# SNPassoc
-Genetic association studies

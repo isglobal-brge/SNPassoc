@@ -7,11 +7,10 @@ function (object, ...)
     if (!is.null(attr(object,"fast")))
        stop("\n summary is implemented only for 'WGassociation' function")
 
-    ans <- attr(object,"tables")
-    mostattributes(ans)<-NULL
-    ans
+    x <- attr(object,"tables")
+    mostattributes(x)<-NULL
+    
+    print(x, na.print = "", ...)
+    invisible(x)
 }
 
-print.WGstats <- function(x, ...){
-  print(x, na.print = "", ...)
-}

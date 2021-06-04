@@ -1,5 +1,3 @@
-useDynLib(SNPassoc, .registration = TRUE)
-
 export(
 snp,
 setupSNP,
@@ -30,36 +28,30 @@ maxstat,
 LD,
 LDplot,
 LDtable,
-dscore,
-getNiceTable,
-getGeneSymbol,
 related,
-getLocusInfo
+dscore
 )
 
 import("haplo.stats")
 import("survival")
 import("mvtnorm")
-importFrom("stats", "reorder")
+import("ggplot2")
+importFrom("tidyr", "gather")
 importFrom("poisbinom", "dpoisbinom" )
 importFrom("parallel", "mclapply")
 importFrom("plyr", "arrange", "count")
-importFrom("biomaRt", "getBM", "useMart")
-
-
 importFrom("grDevices", "heat.colors")
 importFrom("graphics", "abline", "axis", "barplot", "hist", "image",
-             "layout", "legend", "lines", "matplot", "par", "plot",
-             "segments", "strheight", "strwidth", "text", "title")
+           "layout", "legend", "lines", "matplot", "par", "segments",
+           "strheight", "strwidth", "text", "title")
 importFrom("stats", ".getXlevels", "AIC", "anova", "as.formula",
-             "binomial", "complete.cases", "dbeta", "density",
-             "fisher.test", "gaussian", "glm", "glm.control", "glm.fit",
-             "is.empty.model", "median", "model.extract", "model.matrix",
-             "model.offset", "model.response", "model.weights",
-             "na.omit", "nlm", "optimize", "pchisq", "pnorm",
-             "printCoefmat", "qbeta", "qchisq", "qnorm", "relevel",
-             "runif", "sd", "terms")
-importFrom("utils", "write.table")
+               "binomial", "complete.cases", "dbeta", "density",
+               "fisher.test", "gaussian", "glm", "glm.control", "glm.fit",
+               "is.empty.model", "median", "model.extract", "model.matrix",
+               "model.offset", "model.response", "model.weights",
+               "na.omit", "nlm", "optimize", "pchisq", "pnorm",
+               "printCoefmat", "qbeta", "qchisq", "qnorm", "relevel",
+               "runif", "sd", "terms", "reorder")
 
 
 S3method(summary,haplo.glm)
@@ -71,7 +63,6 @@ S3method(print,haploOut)
 S3method(print,intervals)
 S3method(print,snpOut)
 S3method(print,tableHWE)
-S3method(print,WGstats)
 
 S3method(codominant,default)
 S3method(dominant,default)
@@ -129,8 +120,8 @@ S3method(maxstat,setupSNP)
 S3method(maxstat,matrix)
 
 S3method(dscore,default)
-S3method(dscore,character)
 S3method(dscore,setupSNP)
+S3method(dscore,character)
 
 S3method(LD,snp)
 S3method(LD,setupSNP)
@@ -140,6 +131,7 @@ S3method(print,LD.data.frame)
 S3method(summary,LD.data.frame)
 S3method(print,summary.LD.data.frame)
 
+S3method(plot, dscore)
 
 ##################
 # hidden functions

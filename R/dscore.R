@@ -1,4 +1,4 @@
-dscore<-function(x,...)
+dscore<-function(x, ...)
  UseMethod("dscore")
 
 

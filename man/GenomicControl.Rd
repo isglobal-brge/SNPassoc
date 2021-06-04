@@ -42,8 +42,6 @@ res<-WGassociation(casco,datSNP,model=c("do","re","log-add"))
 
 # Genomic Control 
 resCorrected<-GenomicControl(res)
-plot(resCorrected)
-
 }
 
 

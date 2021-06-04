@@ -1,6 +1,8 @@
-v1.9-8
-2018-03-12
-Several changes (dscore, functions for the book, scanWGassociation, ...). Now version in GitHub
+v2.0-0
+2020-08-23
+- Added dscore function
+- Added related function
+- Changed email address after receiving Brian's email
 
 v1.9-2
 2014-04-22

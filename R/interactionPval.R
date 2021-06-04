@@ -40,7 +40,7 @@ function (formula, data, quantitative = is.quantitative(formula,
 
     colSNPs<-attr(data,"colSNPs")
     if (is.vector(colSNPs) & length(colSNPs) > 0) 
-        dataSNPs.sel <- data[, colSNPs, drop=FALSE]
+        dataSNPs.sel <- data[, colSNPs]
     else stop("data should have an attribute called 'colSNPs'. Try again 'setupsNP' function")
     
     dataSNPs <- data.frame(lapply(dataSNPs.sel,function(x,model.sel) model.sel(x),model.sel=modelOK)) 

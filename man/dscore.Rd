@@ -37,9 +37,10 @@ gs <- dscore(c(0.23, 0.16, 0.12, 0.02))
 gs 
 plot(gs)
 
-gs2 <- dscore(c("rs2643762", "rs8689", "rs6295", "rs41235"))
-gs2
-plot(gs2)
+# This calls BiomaRt to retrieve allele frequencies of thsese SNPs (not executed)
+# gs2 <- dscore(c("rs2643762", "rs8689", "rs6295", "rs41235"))
+# gs2
+# plot(gs2)
 
 }
 \keyword{utilities}

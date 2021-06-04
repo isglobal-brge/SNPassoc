@@ -30,7 +30,7 @@ tableHWE(x, strata, ...)
 }
 
 \author{This function is based on an R function which computes an exact SNP test of Hardy-Weinberg Equilibrium 
-written by Wigginton JE, Cutler DJ and Abecasis GR available at \url{http://www.sph.umich.edu/csg/abecasis/Exact/r_instruct.html}} 
+written by Wigginton JE, Cutler DJ and Abecasis GR available at \url{http://csg.sph.umich.edu/abecasis/Exact/r_instruct.html}} 
 
 \seealso{ \code{\link{setupSNP}}}
 

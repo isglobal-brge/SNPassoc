@@ -1,5 +1,5 @@
 `assoc` <-
-function(y, x, test="lrt", quantitative)
+function(y,x,test="lrt",quantitative)
  {
  lrt<-function(m) 
   {

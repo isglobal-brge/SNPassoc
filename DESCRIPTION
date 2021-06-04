@@ -1,15 +1,18 @@
 Package: SNPassoc
-Version: 2.0-0
-Date: 2019-05-06
-Depends: R (>= 3.5.0)
-Imports: haplo.stats, mvtnorm, parallel, survival, biomaRt, tidyverse, poisbinom
-Suggests: testthat, knitr, BiocStyle, rmarkdown
-Title: SNPs-based whole genome association studies
+Version: 2.0-2
+Date: 2020-11-10
+Depends: R (>= 4.0.0)
+Imports: haplo.stats, mvtnorm, parallel, survival, tidyr, plyr,
+        ggplot2, BiocStyle, poisbinom
+Suggests: testthat, knitr, rmarkdown, biomaRt
+Title: SNPs-Based Whole Genome Association Studies
 Author: Juan R Gonzalez and Victor Moreno
 Maintainer: Juan R Gonzalez <juanr.gonzalez@isglobal.org>
-Description: This package carries out most common analysis when performing whole genome association studies. These analyses include descriptive statistics and exploratory analysis of missing values, calculation of Hardy-Weinberg equilibrium, analysis of association based on generalized linear models (either for quantitative or binary traits), and analysis of multiple SNPs (haplotype and epistasis analysis). Permutation test and related tests (sum statistic and truncated product) are also implemented. Max-statistic and genetic risk-allele score exact distributions are also possible to be estimated. 
-License: file LICENSE
-URL: http://brge.isglobal.org
+Description: Functions to perform most of the common analysis in genome association studies are implemented. These analyses include descriptive statistics and exploratory analysis of missing values, calculation of Hardy-Weinberg equilibrium, analysis of association based on generalized linear models (either for quantitative or binary traits), and analysis of multiple SNPs (haplotype and epistasis analysis). Permutation test and related tests (sum statistic and truncated product) are also implemented. Max-statistic and genetic risk-allele score exact distributions are also possible to be estimated. The methods are described in Gonzalez JR et al. (2007) <doi: 10.1093/bioinformatics/btm025>.
+License: GPL (>= 2)
+URL: https://brge.isglobal.org
 Encoding: latin1
 VignetteBuilder: knitr
 RoxygenNote: 6.0.1
+NeedsCompilation: no
+Packaged: 2020-11-10 19:32:05 UTC; jrgonzalez
