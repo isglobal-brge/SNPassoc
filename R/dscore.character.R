@@ -1,30 +1,12 @@
 dscore.character <- function(x, ...){
- 
-  snpmart <- biomaRt::useEnsembl(biomart="snp", 
-                       dataset="hsapiens_snp")
+ rng <- snpsById(SNPlocs.Hsapiens.dbSNP144.GRCh38, ids=x)
+ mafs <- gscores(MafDb.1Kgenomes.phase3.GRCh38, rng, pop=c("EUR_AF"))
+ fAlleles <- as.character(getSeq(BSgenome.Hsapiens.NCBI.GRCh38::Hsapiens, rng))
+ altAlleles <- DNA_BASES[(match(refAlleles, DNA_BASES)) %% 4 + 1]
 
-  
-  snpInfo <- biomaRt::getBM(c("refsnp_id", "chr_name", 
-                              "chrom_start", 
-                              "allele", 
-                              "minor_allele", 
-                              "minor_allele_freq"),
-                            filters = c("snp_filter"),
-                            values = x, mart = snpmart)
-  
-  snpInfo <- subset(snpInfo, chr_name%in%c(1:22,"X", "Y"))
-    
-  rownames(snpInfo) <- snpInfo$refsnp_id
-  
-  if (nrow(snpInfo)!=length(x)) {
-    warning("Genetic score distribution has been computed with these SNPs: \n",
-            paste(unique(snpInfo$refsnp_id), collapse="; "))
-  }
-  x.info <- x[x%in%snpInfo$refsnp_id]    
-  snpInfo <- snpInfo[x.info,]
-  rownames(snpInfo) <- snpInfo$refsnp_id
-  mafs<-snpInfo$minor_allele_freq
-  ans <- dscore(mafs)
-  attr(ans, "MAFs") <- snpInfo
-  ans
+ snpInfo <- data.frame(mafs, refAlleles, altAlleles) 
+ mafs <- snpInfo$EUR_AG
+ ans <- dscore(mafs)
+ attr(ans, "MAFs") <- snpInfo
+ ans
 }
