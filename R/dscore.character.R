@@ -5,7 +5,7 @@ dscore.character <- function(x, ...){
  altAlleles <- DNA_BASES[(match(refAlleles, DNA_BASES)) %% 4 + 1]
 
  snpInfo <- data.frame(mafs, refAlleles, altAlleles) 
- mafs <- snpInfo$EUR_AG
+ mafs <- snpInfo$EUR_AF
  ans <- dscore(mafs)
  attr(ans, "MAFs") <- snpInfo
  ans
