@@ -28,6 +28,10 @@ maxstat,
 LD,
 LDplot,
 LDtable,
+dscore,
+pscore,
+getNiceTable,
+getGeneSymbol,
 related,
 dscore
 )

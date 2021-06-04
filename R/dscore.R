@@ -11,6 +11,6 @@ plot.dscore <- function(x, ...) {
 
 pscore <- function(q, x, ...){
   gs <- dscore(x, ...)
-  ans <- sum(gs[1:(q+1)])
+  ans <- sapply(q, function(x) sum(gs[1:(x+1)]))
   ans
 }
