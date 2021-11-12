@@ -5,7 +5,7 @@ function(object, ...)
         stop("object must be an object of class 'setupSNP'")
   colSNPs<-attr(object,"colSNPs")
   if(length(colSNPs)>0){
-  temp <- mclapply(object[,colSNPs, drop=FALSE], expandsetupSNP)
+  temp <- lapply(object[,colSNPs, drop=FALSE], expandsetupSNP)
 
   ans<-temp[[1]] 
   i<-2
