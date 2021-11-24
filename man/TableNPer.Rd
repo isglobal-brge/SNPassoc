@@ -18,7 +18,7 @@ Table.N.Per(var, dep, subset = !is.na(var))
 }
 
 \value{
-  \item{tp}{A matrix giving sample size (n),and the percentage (%) for each level of the categorical trait
+  \item{tp}{A matrix giving sample size (n),and the percentage (\%) for each level of the categorical trait
    for each genotype}
 }
 
@@ -27,13 +27,13 @@ Table.N.Per(var, dep, subset = !is.na(var))
 \examples{
 data(SNPs)
 #sample size and percentage of cases and controls for each genotype 
-#  Table.N.Per(SNPs$snp10001,SNPs$casco)
+Table.N.Per(SNPs$snp10001,SNPs$casco)
 
 # The same table for a subset (males)
-#  Table.N.Per(SNPs$snp10001,SNPs$casco,SNPs$sex=="Male")
+Table.N.Per(SNPs$snp10001,SNPs$casco,SNPs$sex=="Male")
 
 # The same table assuming a dominant model
-#  Table.N.Per(dominant(snp(SNPs$snp10001,sep="")),SNPs$casco,SNPs$sex=="Male")
+Table.N.Per(dominant(snp(SNPs$snp10001,sep="")),SNPs$casco,SNPs$sex=="Male")
 
 
 }

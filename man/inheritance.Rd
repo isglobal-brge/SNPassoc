@@ -30,7 +30,7 @@ additive(o)
 \arguments{
   \item{o}{categorical covariate having genotypes}
 }
-
+\value{A snp object collapsing genotypes into different categories depending on a given genetic mode of inheritance}
 \examples{
 data(SNPs)
 dominant(snp(SNPs$snp10001,sep=""))

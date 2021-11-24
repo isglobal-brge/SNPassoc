@@ -21,13 +21,17 @@ function(geno, var2, dep, adj = NULL, fam, haplo.freq.min, ...)
 	# Models
 	if (is.null(adj))
 	{
-		mod <- haplo.glm(dep~geno*var2, family=fam, allele.lev=attributes(geno)$unique.alleles, control=haplo.glm.control(haplo.freq.min=haplo.freq.min,...))
-		mod.b <- haplo.glm(dep~geno+var2, family=fam, allele.lev=attributes(geno)$unique.alleles, control=haplo.glm.control(haplo.freq.min=haplo.freq.min,...))
+		mod <- haplo.stats::haplo.glm( dep~geno*var2, family=fam, allele.lev=attributes(geno)$unique.alleles, 
+		                               control = haplo.stats::haplo.glm.control(haplo.freq.min=haplo.freq.min,...))
+		mod.b <- haplo.stats::haplo.glm( dep~geno+var2, family=fam, allele.lev=attributes(geno)$unique.alleles, 
+		                                 control = haplo.stats::haplo.glm.control(haplo.freq.min=haplo.freq.min,...))
 	}
 	else
 	{
-		mod <- haplo.glm(dep~.+geno*var2, family=fam, allele.lev=attributes(geno)$unique.alleles, control=haplo.glm.control(haplo.freq.min=haplo.freq.min,...), data=adj)
-		mod.b <- haplo.glm(dep~.+geno+var2, family=fam, allele.lev=attributes(geno)$unique.alleles, control=haplo.glm.control(haplo.freq.min=haplo.freq.min,...), data=adj)
+		mod <- haplo.stats::haplo.glm( dep~.+geno*var2, family=fam, allele.lev = attributes(geno)$unique.alleles, 
+		                               control = haplo.stats::haplo.glm.control(haplo.freq.min=haplo.freq.min,...), data=adj)
+		mod.b <- haplo.stats::haplo.glm( dep~.+geno+var2, family=fam, allele.lev=attributes(geno)$unique.alleles, 
+		                                 control = haplo.stats::haplo.glm.control(haplo.freq.min=haplo.freq.min,...), data=adj)
 	}
 
 	# Calculo la p d'interacci? entre l'haplotip i la variable

@@ -119,29 +119,38 @@ function (x, colorcut = c(0, 0.01, 0.025, 0.05, 0.1, 1), colors = heat.colors(le
     abline(h = -0.5 + 1:(nrow(colormat) + 1))
     axis(3, 1:ncol(colormat), colnames(colormat))
     axis(2, 1:nrow(colormat), rev(rownames(colormat)))
+    
+    # Reset par options on exit function
     cex.old <- par("cex")
-    if (missing(cex))
+    on.exit(par(cex.old))
+    
+    if (missing(cex)) {
         cex <- min(c(1/10, 1/(length(which) + 1))/c(strwidth("W"),
             strheight("W") * 1.5))
+    }
     par(cex = cex)
     lineheight <- strheight("W") * 1.5
     center <- lineheight * length(which)/2
     for (i in 1:length(which)) {
         displaymat <- x[[which[i]]]
-        if (!show.all)
+        if (!show.all){
             displaymat <- displaymat[-nrow(displaymat), -1, drop = FALSE]
-        if (which[i] == "P-value")
+        }
+        
+        if (which[i] == "P-value"){
             displaymat <- format.pval(displaymat, digits = digits)
-        else if (which[i] != "n")
+        } else if (which[i] != "n"){
             displaymat <- format(displaymat, digits = digits)
+        }
         displaymat[] <- gsub("NA.*", "", as.character(displaymat))
         text(x = col(colormat), y = nrow(colormat) - row(colormat) +
             1 + center - lineheight * (i - 1), displaymat, col = textcol,
             adj = c(0.5, 1))
     }
-    text(x = 1, y = 1, paste(which, collapse = "\n"), adj = c(0.5,
-        0.5))
-    par(cex = cex.old)
+    text(x = 1, y = 1, paste(which, collapse = "\n"), adj = c(0.5, 0.5))
+    
+    # par(cex = cex.old)
+    
     title(main = "Linkage Disequilibrium\n")
     invisible(colormat)
 }

@@ -36,3 +36,4 @@ vignettes/*.pdf
 # Compile code
 *.o
 *.dll
+*.old

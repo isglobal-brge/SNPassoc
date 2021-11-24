@@ -17,7 +17,7 @@ qqpval(p, pch=16, col=4, \dots)
 
 
 \value{
-  A plot
+  No return value, just the plot
 }
 
 

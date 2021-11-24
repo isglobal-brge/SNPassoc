@@ -1,19 +1,27 @@
 `tableHWE` <-
 function (x, strata, ...)
 {
-    if (!inherits(x, "setupSNP"))
+    if (!inherits(x, "setupSNP")) {
         stop("x must be an object of class 'setupSNP'")
+    }
+    
     colSNPs <- attr(x, "colSNPs")
 # VM  seleccion incorrecta de datos!!  data.SNPs <- x[colSNPs,,drop=FALSE]
-    data.SNPs <- x[,colSNPs, drop=FALSE]
-    tt <- mclapply(data.SNPs, table, ...)
-    ans <- cbind("HWE (p value)"=unlist(mclapply(tt, SNPHWE, ...)))
+    data.SNPs <- x[ , colSNPs, drop=FALSE]
+    tt <- mclapply( data.SNPs, table, ...)
+    ans <- cbind( "HWE (p value)" = unlist(mclapply(tt, SNPHWE, ...)) )
+    
     if (!missing(strata)) {
 
 # VM buscar en x si existe
-	strata.name <- deparse(substitute(strata))
-	if(!exists(strata.name) & strata.name %in% names(x)) strata<-x[,strata.name]
-        if (length(table(strata))>5) stop("strata looks numeric")
+    	strata.name <- deparse(substitute(strata))
+        if(!exists(strata.name) & strata.name %in% names(x)) {
+            strata<-x[,strata.name]
+        }
+    	
+        if (length(table(strata)) > 5) {
+            stop("strata looks numeric")
+        }
         strates <- names(table(strata) > 0)
         n.strata <- length(strates)
         i <- 1
@@ -28,7 +36,7 @@ function (x, strata, ...)
         }
         dimnames(ans)[[2]] <- c("all groups", strates)
     }
-    class(ans)<-c("tableHWE", "matrix")
+    class(ans) <- c("tableHWE", "matrix")
     ans
 }
 

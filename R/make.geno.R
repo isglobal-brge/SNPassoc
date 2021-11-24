@@ -10,7 +10,7 @@ function (data, SNPs.sel)
       ans.i<-togeno(data[,SNPs.sel[i]],sep="/",lab=SNPs.sel[i])
       ans<-cbind(ans,ans.i)
      }
-    geno<-setupGeno(ans)
+    geno <- haplo.stats::setupGeno(ans)
     geno
 }
 

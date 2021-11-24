@@ -1,6 +1,5 @@
 \name{SNPs}
 \alias{SNPs}
-\alias{SNPs.info.pos}
 
 \title{SNPs in a case-control study}
 \usage{data(SNPs)}
@@ -23,14 +22,6 @@
 	snp10002 \tab SNP 2 \cr
 	  ...        \tab  ...      \cr
 	snp100036 \tab SNP 36 \cr
-  }
-
-  'SNPs.info.pos' data.frame contains the following columns:
-   A data frame with 35 observations on the following 3 variables.
-  \describe{
-    \item{\code{snp}}{name of SNP}
-    \item{\code{chr}}{name of chromosome}
-    \item{\code{pos}}{genomic position}
   }
 }
 

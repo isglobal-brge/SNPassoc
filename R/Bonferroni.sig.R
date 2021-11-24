@@ -16,12 +16,12 @@ function (x, model = "codominant", alpha = 0.05, include.all.SNPs = FALSE)
         cut.p <- alpha/nrow(x)
     }
     else cut.p <- alpha/nrow(x)
-    cat("number of tests: ", nrow(x), "\n")
-    cat("alpha:", alpha, "\n")
-    cat("corrected alpha:", cut.p, "\n")
+    message("number of tests: ", nrow(x))
+    message("alpha: ", alpha)
+    message("corrected alpha: ", cut.p)
     significant <- x[as.numeric(x[, 2]) <= cut.p, ]
     if (all(is.na(significant))) {
-        cat("   No significant SNPs after Bonferroni correction \n")
+        message("   No significant SNPs after Bonferroni correction ")
         ans <- NULL
     }
     else {
