@@ -3,11 +3,17 @@ function (x, type = barplot, label, ...)
 {
     if (!inherits(x, "snp")) 
         stop("snp must be an object of class 'WGassociation'")
-    if (missing(label)) 
+    if (missing(label)) {
         label <- deparse(substitute(x))
+    }
+    
+    # Reset par options on exit function
     old.mar <- par("mar")
+    on.exit(par(old.mar))
+    
     old.mfrow <- par("mfrow")
-    on.exit(par(mar = old.mar, mfrow = old.mfrow))
+    on.exit(par(old.mfrow))
+
     m <- m <- matrix(c(1, 2), nrow = 2, ncol = 1, byrow = TRUE)
     layout(m, heights = c(1, 5.5))
     par(mar = c(0, 0, 0, 0))
@@ -18,7 +24,7 @@ function (x, type = barplot, label, ...)
     crea.lab(xx$allele.freq, 1.6, 0.8, 0.25)
     crea.lab(xx$genotype.freq, 2.8, 0.8, 0.25)
     text(4.5, 1, paste("HWE (pvalue):", round(xx$HWE, 6)), cex = 0.8)
-    par(mar = old.mar)
+    # par(mar = old.mar)
     type(xx$genotype.freq[, 1], ...)
 }
 

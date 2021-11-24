@@ -27,3 +27,12 @@ a data.frame having initial information and gene symbol
 \description{
 Get gene symbol from a list of SNPs
 }
+\examples{
+snps = c('rs58108140','rs189107123')
+chr = c('chr1','chr1')
+pos = c(10583, 10611)
+
+x <- data.frame(snps, chr, pos )
+
+getGeneSymbol(x)
+}

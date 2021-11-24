@@ -28,7 +28,7 @@ getSignificantSNPs(x, chromosome, model, sig = 1e-15)
 \seealso{  \code{\link{WGassociation}} }
 
 \examples{
-data(HapMap)
+data(resHapMap)
 # resHapMap contains the results for a log-additive genetic model
 
 # to get the significant SNPs for chromosome 12

@@ -15,3 +15,8 @@ A matrix with related individuals.
 \description{
 Get related samples
 }
+\examples{
+  library(SNPassoc)
+  data(SNPs)
+
+}

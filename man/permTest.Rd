@@ -59,14 +59,12 @@ SNPassoc: an R package to perform whole genome association studies. Bioinformati
 
 \examples{
 
-data(SNPs)
-datSNP<-setupSNP(SNPs,6:40,sep="")
-ans<-scanWGassociation(casco~1,data=datSNP,model="co",nperm=1000)
+library(SNPassoc)
 
-# pPerm<-permTest(ans)
-# print(pPerm)
-# plot(pPerm)
+data(asthma, package = "SNPassoc")
+asthma.s <- setupSNP(data=asthma, colSNPs=7:ncol(asthma), sep="")
 
+ans <- WGassociation(casecontrol, data=asthma.s)
 
 }
 

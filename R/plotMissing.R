@@ -11,10 +11,16 @@ function (x, print.labels.SNPs = TRUE,
    genInfo<-attr(x,"gen.info")
 
    data.Missing <- is.na(data.SNPs)
+
+   # Reset par options on exit function
    old.xpd <- par("xpd")
+   on.exit(par(old.xpd))
+   
    old.las <- par("las")
+   on.exit(par(old.las))
+   
    par(xpd = TRUE)
-   on.exit(par(xpd = old.xpd, las = old.las))
+
    image(1:nrow(data.Missing), 1:ncol(data.Missing), data.Missing, 
         col = c("white", "black"), ylab = "Individuals", xlab = ifelse(print.labels.SNPs, 
             "", "SNPs"), axes = !print.labels.SNPs)

@@ -88,8 +88,9 @@ SNPassoc: an R package to perform whole genome association studies. Bioinformati
 }
 
 
-\seealso{ \code{\link{scanWGassociation}} \code{\link{getSignificantSNPs}} 
-    \code{\link{association}} \code{\link{WGstats}} \code{\link{setupSNP}} \code{\link{plot.WGassociation}}}
+\seealso{ \code{\link{getSignificantSNPs}} \code{\link{association}} 
+          \code{\link{WGstats}} \code{\link{setupSNP}} 
+          \code{\link{plot.WGassociation}}}
 
 \examples{
 data(SNPs)

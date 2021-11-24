@@ -31,6 +31,7 @@
 
 \title{Internal SNPstat functions}
 \description{Internal SNPassoc functions}
+\value{No return value, internal calls }
 \usage{
 association.fit(var, dep, adj, quantitative, type, level, 
        nIndiv, genotypingRate = 0, ...) 

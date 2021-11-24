@@ -49,7 +49,8 @@ function(formula, data, SNPs.sel, quantitative = is.quantitative(formula, data),
    varInt <-gsub("int\\(","",varInt)
    varInt <-gsub("\\)","",varInt)
 
-   out<-haplo.inter.fit(geno, var2, dep, adj , ifelse(quantitative,"gaussian","binomial"), haplo.freq.min, ...)
+   out <- haplo.inter.fit(geno, var2, dep, adj , 
+                          ifelse(quantitative,"gaussian","binomial"), haplo.freq.min, ...)
    
    res.corner<-out[[1]]
    xx<-dimnames(res.corner)[[2]] 
@@ -97,11 +98,11 @@ function(formula, data, SNPs.sel, quantitative = is.quantitative(formula, data),
    res.int2<-ans2      
   
    res<-list(res.corner,res.int1,res.int2,out$pval)
-   attr(res,"label.snp")<-SNPs.sel
-   attr(res,"varAdj")<-varAdj 
-   attr(res,"varInt")<-varInt
-   attr(res,"quantitative")<-quantitative
-   class(res)<-"haploOut"
+   attr(res,"label.snp") <- SNPs.sel
+   attr(res,"varAdj") <- varAdj 
+   attr(res,"varInt") <- varInt
+   attr(res,"quantitative") <- quantitative
+   class(res) <- "haploOut"
    res
 
 }

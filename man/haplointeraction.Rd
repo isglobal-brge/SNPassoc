@@ -52,10 +52,13 @@ haplo.interaction(formula, data, SNPs.sel, quantitative =
 
 \examples{
 # not Run
-# data(SNPs)
-# datSNP<-setupSNP(SNPs,6:40,sep="")
-# res<-haplo.interaction(log(protein)~int(sex), data=datSNP,
-#      SNPs.sel=c("snp100019","snp10001","snp100029"))
-# res
+library(SNPassoc)
+library(haplo.stats)
+
+data(SNPs)
+datSNP<-setupSNP(SNPs,6:40,sep="")
+res <- haplo.interaction(log(protein)~int(sex), data=datSNP,
+                    SNPs.sel=c("snp100019","snp10001","snp100029"))
+res
 }
 \keyword{utilities }

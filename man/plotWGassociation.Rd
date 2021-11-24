@@ -32,6 +32,19 @@ SNPassoc: an R package to perform whole genome association studies. Bioinformati
  No return value, just the plot
 }
 
+\examples{
+
+library(SNPassoc)
+
+data(asthma, package = "SNPassoc")
+asthma.s <- setupSNP(data=asthma, colSNPs=7:ncol(asthma), sep="")
+
+ans <- WGassociation(casecontrol, data=asthma.s)
+
+plot(ans)
+
+}
+
 \seealso{ \code{\link{association}} \code{\link{setupSNP}} \code{\link{WGassociation}} }
 
 

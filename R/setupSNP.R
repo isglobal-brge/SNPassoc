@@ -18,24 +18,26 @@ function(data, colSNPs, sort=FALSE, info, sep="/", ...)
      info <- temp$dataSorted
      temp <- data[, pos, drop=FALSE]
      dataSNPs <- mclapply(temp, snp, sep = sep, ...)
+     #..debug..#   dataSNPs <- lapply(temp, snp, sep = sep, ...)
    }
  else
    { 
-    dataSNPs <- mclapply(data[,colSNPs, drop=FALSE],snp,sep=sep, ...)
+    dataSNPs <- mclapply(data[, colSNPs, drop=FALSE], snp, sep=sep, ...)
+    #..debug..#  dataSNPs <- lapply(data[, colSNPs, drop=FALSE], snp, sep=sep, ...)
    }
 
- dataSNPs<-data.frame(dataSNPs) 
- datPhen<-data[,-colSNPs,drop=FALSE]
+ dataSNPs <- data.frame(dataSNPs) 
+ datPhen <- data[,-colSNPs,drop=FALSE]
 
  ans<-cbind(datPhen,dataSNPs)
 
  label.SNPs <- names(dataSNPs)
- class(ans)<-c("setupSNP","data.frame")
- attr(ans,"row.names")<-1:length(ans[[1]])
- attr(ans,"label.SNPs")<-label.SNPs
- attr(ans,"colSNPs")<-c((length(ans)-length(label.SNPs)+1):length(ans))
+ class(ans) <- c("setupSNP","data.frame")
+ attr(ans,"row.names") <- 1:length(ans[[1]])
+ attr(ans,"label.SNPs") <- label.SNPs
+ attr(ans,"colSNPs") <- c((length(ans)-length(label.SNPs)+1):length(ans))
  if (sort)
-   attr(ans,"gen.info")<-info
+   attr(ans,"gen.info") <- info
  ans
 
 }
