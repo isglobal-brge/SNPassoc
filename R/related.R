@@ -6,6 +6,7 @@
 #'   library(SNPassoc)
 #'   data(SNPs)
 #' 
+#' @export
 related <- function(x) {
   ans <- NULL
   while(nrow(x)>0) {

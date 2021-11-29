@@ -36,7 +36,8 @@ dscore,
 Table.N.Per,
 Table.mean.se,
 is.Monomorphic,
-sortSNPs
+sortSNPs,
+related
 )
 
 import("haplo.stats")
