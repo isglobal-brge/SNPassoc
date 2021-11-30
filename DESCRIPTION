@@ -1,5 +1,5 @@
 Package: SNPassoc
-Version: 2.0-9
+Version: 2.0-10
 Date: 2021-11-15
 Depends: R (>= 4.0.0)
 Imports: haplo.stats, mvtnorm, parallel, survival, tidyr, plyr,
@@ -13,8 +13,8 @@ Suggests: testthat, knitr, rmarkdown, biomaRt,
         GenomicScores, 
         BSgenome
 Title: SNPs-Based Whole Genome Association Studies
-Authors@R: c(person(given = "Victor", family = "Moreno", role = "aut"),
-             person(given = "Juan R", family = "Gonzalez", email = "juanr.gonzalez@isglobal.org", role = c("aut", "cre")))
+Authors@R: c( person(given = "Victor", family = "Moreno", role = "aut"),
+              person(given = "Juan R", family = "Gonzalez", email = "juanr.gonzalez@isglobal.org", role = c("aut", "cre")))
 Description: Functions to perform most of the common analysis in genome association studies are implemented. These analyses include descriptive statistics and exploratory analysis of missing values, calculation of Hardy-Weinberg equilibrium, analysis of association based on generalized linear models (either for quantitative or binary traits), and analysis of multiple SNPs (haplotype and epistasis analysis). Permutation test and related tests (sum statistic and truncated product) are also implemented. Max-statistic and genetic risk-allele score exact distributions are also possible to be estimated. The methods are described in Gonzalez JR et al., 2007 <doi: 10.1093/bioinformatics/btm025>.
 URL: https://github.com/isglobal-brge/SNPassoc
 License: GPL (>= 2)

@@ -28,11 +28,13 @@ a data.frame having initial information and gene symbol
 Get gene symbol from a list of SNPs
 }
 \examples{
-snps = c('rs58108140','rs189107123')
-chr = c('chr1','chr1')
-pos = c(10583, 10611)
-
-x <- data.frame(snps, chr, pos )
-
-getGeneSymbol(x)
+    \donttest{
+        snps = c('rs58108140','rs189107123','rs180734498','rs144762171')
+        chr = c('chr1','chr1','chr1','chr1')
+        pos = c(10583, 10611, 13302, 13327)
+        
+        x <- data.frame(snps, chr, pos )
+        
+        getGeneSymbol(x)
+    }
 }
