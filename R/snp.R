@@ -45,7 +45,15 @@ function (x, sep = "/", name.genotypes, reorder="common", remove.spaces = TRUE,
                     parts <- matrix(unlist(part.list), ncol = 2, byrow = TRUE)
                 } else if (is.numeric(sep)) {
                     # parts <- cbind(substring(x, 1, sep), substring(x, sep + 1, 9999))
-                    parts <- cbind(substring(x, 1, sep), substring(x, sep + 1, nchar(x)))
+                    #.19/08/2022.# parts <- cbind(substring(x, 1, sep), substring(x, sep + 1, nchar(x)))
+                    # Control sep length to avoid segfault (19/08/2022)
+                    parts <- cbind( ifelse( sep > nchar(x), 
+                                               substring(x, 1, nchar(x)), 
+                                               substring(x, 1, sep) ), 
+                                    ifelse( sep + 1 <= nchar(x), 
+                                               substring(x, sep + 1, nchar(x)), 
+                                               NA) 
+                                   )
                 } else {
                     stop(paste("I don't know how to handle sep=", sep))
                 }

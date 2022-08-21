@@ -22,8 +22,8 @@ function(data, colSNPs, sort=FALSE, info, sep="/", ...)
    }
  else
    { 
-    dataSNPs <- mclapply(data[, colSNPs, drop=FALSE], snp, sep=sep, ...)
-    #..debug..#  dataSNPs <- lapply(data[, colSNPs, drop=FALSE], snp, sep=sep, ...)
+       dataSNPs <- mclapply(data[, colSNPs, drop=FALSE], snp, sep=sep, ...)
+       #..debug..#  dataSNPs <- lapply(data[, colSNPs, drop=FALSE], snp, sep=sep, ...)
    }
 
  dataSNPs <- data.frame(dataSNPs) 
