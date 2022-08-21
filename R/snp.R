@@ -47,13 +47,26 @@ function (x, sep = "/", name.genotypes, reorder="common", remove.spaces = TRUE,
                     # parts <- cbind(substring(x, 1, sep), substring(x, sep + 1, 9999))
                     #.19/08/2022.# parts <- cbind(substring(x, 1, sep), substring(x, sep + 1, nchar(x)))
                     # Control sep length to avoid segfault (19/08/2022)
-                    parts <- cbind( ifelse( sep > nchar(x), 
-                                               substring(x, 1, nchar(x)), 
-                                               substring(x, 1, sep) ), 
-                                    ifelse( sep + 1 <= nchar(x), 
-                                               substring(x, sep + 1, nchar(x)), 
-                                               NA) 
-                                   )
+                    allele_1 <- ifelse( sep > nchar(x), 
+                                        substring(x, 1, nchar(x)), 
+                                        substring(x, 1, sep) )
+                    allele_2 <- ifelse( sep + 1 > nchar(x), 
+                                        "",
+                                        substring(x, sep + 1, nchar(x)) )
+                    
+                    if( length(allele_1) == length(allele_2) ) {
+                        parts <- cbind( allele_1, allele_2)
+                    } else {
+                        stop(paste("Error splitting alleles with sep=", sep))
+                    }
+                    
+                    # parts <- cbind( ifelse( sep > nchar(x), 
+                    #                            substring(x, 1, nchar(x)), 
+                    #                            substring(x, 1, sep) ), 
+                    #                 ifelse( sep + 1 > nchar(x), 
+                    #                         "",
+                    #                         substring(x, sep + 1, nchar(x)) ) 
+                    #                )
                 } else {
                     stop(paste("I don't know how to handle sep=", sep))
                 }
@@ -84,19 +97,19 @@ function (x, sep = "/", name.genotypes, reorder="common", remove.spaces = TRUE,
                 object <- factor(object) 
             }
 
-            control <- paste(rep(alleles[1],2),collapse="/") %in% ll
+            control <- paste( rep(alleles[1], 2), collapse="/") %in% ll
 
-            if (sum(control)==0 & length(ll)==3) {
-                object[ object==ll[2] ] <- ll[1]
+            if ( sum(control)==0 & length(ll)==3 ) {
+                object[ object == ll[2] ] <- ll[1]
                 object <- factor(object) 
             }
 
 
-            control <- paste(rep(alleles[2],2),collapse="/")%in%ll
+            control <- paste( rep(alleles[2], 2), collapse="/") %in% ll
 
-            if (sum(control)==0 & length(ll)==3) {
-                object[object==ll[3]]<-ll[2]
-                object<-factor(object) 
+            if (sum(control) == 0 & length(ll) == 3) {
+                object[ object == ll[3] ] <- ll[2]
+                object <- factor(object) 
             }
 
             if (length(object)==sum(is.na(object))) {
@@ -104,7 +117,7 @@ function (x, sep = "/", name.genotypes, reorder="common", remove.spaces = TRUE,
             }
 
             class(object) <- c("snp","factor")
-            object<-reorder.snp(object, ref=reorder)
+            object <- reorder.snp(object, ref = reorder)
             attr(object, "allele.names") <- alleles
             
         } else {
@@ -113,9 +126,9 @@ function (x, sep = "/", name.genotypes, reorder="common", remove.spaces = TRUE,
                 stop("'name.genotypes' must match with the observed genotypes")
             }
             
-            x[x==name.genotypes[1]] <- "A/A"
-            x[x==name.genotypes[2]] <- "A/B"
-            x[x==name.genotypes[3]] <- "B/B"
+            x[ x==name.genotypes[1] ] <- "A/A"
+            x[ x==name.genotypes[2] ] <- "A/B"
+            x[ x==name.genotypes[3] ] <- "B/B"
             object <- as.factor(x)
             attr(object, "allele.names") <- c("A","B")
             class(object) <- c("snp","factor")
