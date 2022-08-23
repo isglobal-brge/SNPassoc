@@ -12,7 +12,7 @@ function (x, type = barplot, label, ...)
     on.exit(par(old.mar))
     
     old.mfrow <- par("mfrow")
-    on.exit(par(old.mfrow))
+    on.exit(par(mfrow = old.mfrow))
 
     m <- m <- matrix(c(1, 2), nrow = 2, ncol = 1, byrow = TRUE)
     layout(m, heights = c(1, 5.5))

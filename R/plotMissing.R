@@ -17,7 +17,7 @@ function (x, print.labels.SNPs = TRUE,
    on.exit(par(old.xpd))
    
    old.las <- par("las")
-   on.exit(par(old.las))
+   on.exit(par(las = old.las))
    
    par(xpd = TRUE)
 
