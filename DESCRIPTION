@@ -1,6 +1,6 @@
 Package: SNPassoc
-Version: 2.0-13
-Date: 2022-08-19
+Version: 2.0-14
+Date: 2022-08-21
 Depends: R (>= 4.0.0)
 Imports: haplo.stats, mvtnorm, parallel, survival, tidyr, plyr,
         ggplot2, BiocStyle, poisbinom, Biostrings, VariantAnnotation, 
