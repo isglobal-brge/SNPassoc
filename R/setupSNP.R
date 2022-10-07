@@ -17,8 +17,8 @@ function(data, colSNPs, sort=FALSE, info, sep="/", ...)
      pos <- temp$pos 
      info <- temp$dataSorted
      temp <- data[, pos, drop=FALSE]
-     dataSNPs <- mclapply(temp, snp, sep = sep, ...)
-     #..debug..#   dataSNPs <- lapply(temp, snp, sep = sep, ...)
+     #..debug..#   dataSNPs <- mclapply(temp, snp, sep = sep, ...)
+     dataSNPs <- lapply(temp, snp, sep = sep, ...)
    }
  else
    { 
