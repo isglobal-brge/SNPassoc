@@ -37,3 +37,11 @@ vignettes/*.pdf
 *.o
 *.dll
 *.old
+
+
+# pkgdown files
+docs
+pkgdown
+^_pkgdown\.yml$
+logo.png
+_pkgdown.yml

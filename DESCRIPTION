@@ -3,7 +3,7 @@ Version: 2.0-17
 Date: 2022-10-03
 Depends: R (>= 4.0.0)
 Imports: haplo.stats, mvtnorm, parallel, survival, tidyr, plyr,
-        ggplot2, BiocStyle, poisbinom, Biostrings, VariantAnnotation, 
+        ggplot2, poisbinom, Biostrings, VariantAnnotation, 
         TxDb.Hsapiens.UCSC.hg19.knownGene, 
         GenomicRanges, IRanges, S4Vectors, org.Hs.eg.db
 Suggests: testthat, knitr, rmarkdown, biomaRt, 
@@ -11,7 +11,8 @@ Suggests: testthat, knitr, rmarkdown, biomaRt,
         MafDb.1Kgenomes.phase3.GRCh38, 
         BSgenome.Hsapiens.NCBI.GRCh38, 
         GenomicScores, 
-        BSgenome
+        BSgenome,
+        BiocStyle
 Title: SNPs-Based Whole Genome Association Studies
 Authors@R: c( person(given = "Victor", family = "Moreno", role = "aut"),
               person(given = "Juan R", family = "Gonzalez", email = "juanr.gonzalez@isglobal.org", role = c("aut")),

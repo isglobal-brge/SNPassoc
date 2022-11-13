@@ -2,3 +2,6 @@
 ^.*\.old$
 ^\.Rproj\.user$
 memcheck.R
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
