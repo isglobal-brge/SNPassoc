@@ -25,6 +25,10 @@ vignettes/*.pdf
 # OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3
 .httr-oauth
 
+# Old files
+*.old
+*.complete
+
 # knitr and R markdown default cache directories
 /*_cache/
 /cache/
@@ -36,7 +40,6 @@ vignettes/*.pdf
 # Compile code
 *.o
 *.dll
-*.old
 
 
 # pkgdown files

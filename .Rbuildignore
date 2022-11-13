@@ -1,5 +1,7 @@
 ^.*\.Rproj$
 ^.*\.old$
+^.*\.png$
+^.*\.complete$
 ^\.Rproj\.user$
 memcheck.R
 ^_pkgdown\.yml$
