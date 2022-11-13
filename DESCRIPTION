@@ -1,22 +1,35 @@
 Package: SNPassoc
-Version: 2.0-17
-Date: 2022-10-03
+Version: 2.0-18
+Date: 2022-11-13
 Depends: R (>= 4.0.0)
 Imports: haplo.stats, mvtnorm, parallel, survival, tidyr, plyr,
-        ggplot2, BiocStyle, poisbinom, Biostrings, VariantAnnotation, 
+        ggplot2, poisbinom, Biostrings
+Suggests: testthat, knitr, rmarkdown, biomaRt,
+        VariantAnnotation, 
+        GenomicRanges, IRanges, S4Vectors, org.Hs.eg.db,
         TxDb.Hsapiens.UCSC.hg19.knownGene, 
-        GenomicRanges, IRanges, S4Vectors, org.Hs.eg.db
-Suggests: testthat, knitr, rmarkdown, biomaRt, 
         SNPlocs.Hsapiens.dbSNP144.GRCh38,
         MafDb.1Kgenomes.phase3.GRCh38, 
         BSgenome.Hsapiens.NCBI.GRCh38, 
         GenomicScores, 
-        BSgenome
+        BSgenome,
+        BiocStyle
 Title: SNPs-Based Whole Genome Association Studies
 Authors@R: c( person(given = "Victor", family = "Moreno", role = "aut"),
-              person(given = "Juan R", family = "Gonzalez", email = "juanr.gonzalez@isglobal.org", role = c("aut")),
-              person(given = "Dolors", family = "Pelegri", email = "dolors.pelegri@isglobal.org", role = c("aut", "cre")))
-Description: Functions to perform most of the common analysis in genome association studies are implemented. These analyses include descriptive statistics and exploratory analysis of missing values, calculation of Hardy-Weinberg equilibrium, analysis of association based on generalized linear models (either for quantitative or binary traits), and analysis of multiple SNPs (haplotype and epistasis analysis). Permutation test and related tests (sum statistic and truncated product) are also implemented. Max-statistic and genetic risk-allele score exact distributions are also possible to be estimated. The methods are described in Gonzalez JR et al., 2007 <doi: 10.1093/bioinformatics/btm025>.
+              person(given = "Juan R", family = "Gonzalez", 
+              email = "juanr.gonzalez@isglobal.org", role = c("aut")),
+              person(given = "Dolors", family = "Pelegri", 
+              email = "dolors.pelegri@isglobal.org", role = c("aut", "cre")))
+Description: Functions to perform most of the common analysis in genome 
+    association studies are implemented. These analyses include descriptive 
+    statistics and exploratory analysis of missing values, calculation of 
+    Hardy-Weinberg equilibrium, analysis of association based on generalized
+    linear models (either for quantitative or binary traits), and analysis
+    of multiple SNPs (haplotype and epistasis analysis). Permutation test 
+    and related tests (sum statistic and truncated product) are also 
+    implemented. Max-statistic and genetic risk-allele score exact 
+    distributions are also possible to be estimated. The methods are 
+    described in Gonzalez JR et al., 2007 <doi: 10.1093/bioinformatics/btm025>.
 URL: https://github.com/isglobal-brge/SNPassoc
 License: GPL (>= 2)
 Encoding: UTF-8

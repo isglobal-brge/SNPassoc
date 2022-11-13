@@ -50,13 +50,6 @@ importFrom("parallel", "mclapply")
 importFrom("plyr", "arrange", "count")
 importFrom("grDevices", "heat.colors")
 importFrom("Biostrings", "getSeq", "DNA_BASES")
-importFrom("BiocStyle", "html_document")
-importFrom("GenomicRanges", "GRanges", "strand")
-importFrom("IRanges", "IRanges")
-importFrom("S4Vectors", "Rle")
-importFrom("VariantAnnotation", "locateVariants", "AllVariants")
-importFrom("TxDb.Hsapiens.UCSC.hg19.knownGene","TxDb.Hsapiens.UCSC.hg19.knownGene")
-importFrom("org.Hs.eg.db","org.Hs.egSYMBOL2EG")
 importFrom("graphics", "abline", "axis", "barplot", "hist", "image",
            "layout", "legend", "lines", "matplot", "par", "segments",
            "strheight", "strwidth", "text", "title")
