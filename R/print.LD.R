@@ -2,7 +2,12 @@
 
 print.LD <- function(x, digits=getOption("digits"), ...)
   {
-    saveopt <- options("digits")
+    
+    # Reset options
+    saveopt <- options()         
+    on.exit(options(saveopt))
+    
+    
     options(digits=digits)
     cat("\n")
     cat("Pairwise LD\n")
@@ -19,7 +24,7 @@ print.LD <- function(x, digits=getOption("digits"), ...)
     print(test)
     cat("\n")
 
-    options(saveopt)
+    # options(saveopt)
     invisible(x)
   }
 
@@ -44,7 +49,10 @@ summary.LD.data.frame <- function(object, digits=getOption("digits"),
     
 
 
-    saveopt <- options("digits")
+    # Reset options
+    saveopt <- options() 
+    on.exit(options(saveopt))
+    
     options(digits=digits)
 
     
@@ -86,7 +94,7 @@ summary.LD.data.frame <- function(object, digits=getOption("digits"),
       }
 
     
-    options(saveopt)
+    # options(saveopt)
     class(tab) <- "summary.LD.data.frame"
     tab
   }

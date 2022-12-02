@@ -8,9 +8,10 @@ function (data, colSNPs, info)
 #control
     ans <- match(label.SNPs, label.SNPs.o)
     if (sum(is.na(ans)) > 0) {
-        cat("Warning: ")
-        cat("the SNPs: ", as.character(label.SNPs[is.na(ans)]), 
-            "\n  are not included in the file with the genomic positions and they are discarded \n")
+        
+        warning("The SNPs: ", as.character(label.SNPs[is.na(ans)]),
+                "are not included in the file with the genomic positions and they are discarded" )
+        
     }
 
     ans <- match(label.SNPs.o, label.SNPs)

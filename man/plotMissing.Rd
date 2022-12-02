@@ -26,7 +26,7 @@ plotMissing(x, print.labels.SNPs = TRUE,
 \seealso{ \code{\link{setupSNP}}}
 
 \value{
-  None
+  No return value, just the plot
 }
 
 \examples{

@@ -25,13 +25,13 @@ Table.mean.se(var, dep, subset = !is.na(var))
 \examples{
 data(SNPs)
 # sample size, mean age and standard error for each genotype
-#  Table.mean.se(SNPs$snp10001,SNPs$protein)
+Table.mean.se(SNPs$snp10001,SNPs$protein)
 
 # The same table for a subset (males)
-#  Table.mean.se(SNPs$snp10001,SNPs$protein,SNPs$sex=="Male")
+Table.mean.se(SNPs$snp10001,SNPs$protein,SNPs$sex=="Male")
 
 # The same table assuming a dominant model
-#  Table.mean.se(dominant(snp(SNPs$snp10001,sep="")),SNPs$protein,SNPs$sex=="Male")
+Table.mean.se(dominant(snp(SNPs$snp10001,sep="")),SNPs$protein,SNPs$sex=="Male")
 
 
 }

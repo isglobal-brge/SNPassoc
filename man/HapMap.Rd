@@ -1,7 +1,5 @@
 \name{HapMap}
 \alias{HapMap}
-\alias{HapMap.SNPs.pos}
-\alias{resHapMap}
 \docType{data}
 
 \title{ SNPs from HapMap project}

@@ -27,11 +27,15 @@ A factor variable.
 }
 
 \examples{
-# Not Run
-# data(SNPs)
-# mod <- haplo.interaction(casco~int(sex)+blood.pre, data=SNPs,
-# SNPs.sel=c("snp10001","snp10004","snp10005"))
-#
+
+library(SNPassoc)
+library(haplo.stats)
+
+data(SNPs)
+datSNP<-setupSNP(SNPs, 6:40, sep = "")
+mod <- haplo.interaction(casco~int(sex)+blood.pre, data = datSNP, 
+                         SNPs.sel = c("snp10001","snp10004","snp10005"))
+
 }
 
 \keyword{utilities}

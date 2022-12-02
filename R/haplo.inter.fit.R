@@ -6,39 +6,43 @@ function(geno, var2, dep, adj = NULL, fam, haplo.freq.min, ...)
 	# haplo.inter(genotip, Datos$sexo, Datos$grupo)
 	# haplo.inter(genotip, Datos$sexo, Datos$grupo, Datos[,c("rcal.dia", "n.edad")],0.005,1)
 
-	# Funció que retorna les tres taules d'interaccions a partir dels coef i se de l'ajust d'un model haplo.glm
+	# Funcio que retorna les tres taules d'interaccions a partir dels coef i se de l'ajust d'un model haplo.glm
 
-	# Li passo els seguents paràmetres per crear un model haplo.glm amb interaccions
+	# Li passo els seguents par?metres per crear un model haplo.glm amb interaccions
 
-	# La variable geno és del tipus: (genotip <- setupGeno(cbind(allele(g.81,1:2), allele(g.82,1:2), allele(g.83,1:2))) on g.81<-genotype(XRCC1.81)  )
+	# La variable geno es del tipus: (genotip <- setupGeno(cbind(allele(g.81,1:2), allele(g.82,1:2), allele(g.83,1:2))) on g.81<-genotype(XRCC1.81)  )
 	# var2 (Variable que interacciona amb l'haplotip)
 	# dep (Variable depenent)
 	# adj (Variables d'ajust)
-	# fam (funció pel glm "binomial"/"gaussian")
-	# haplo.freq.min (haplo.freq.min = 0.01) Frequència mínima haplotípica.
-	# num.status (variable resposta categòrica o numèrica?)
+	# fam (funci? pel glm "binomial"/"gaussian")
+	# haplo.freq.min (haplo.freq.min = 0.01) Frequ?ncia m?nima haplot?pica.
+	# num.status (variable resposta categ?rica o num?rica?)
 
 	# Models
 	if (is.null(adj))
 	{
-		mod <- haplo.glm(dep~geno*var2, family=fam, allele.lev=attributes(geno)$unique.alleles, control=haplo.glm.control(haplo.freq.min=haplo.freq.min,...))
-		mod.b <- haplo.glm(dep~geno+var2, family=fam, allele.lev=attributes(geno)$unique.alleles, control=haplo.glm.control(haplo.freq.min=haplo.freq.min,...))
+		mod <- haplo.stats::haplo.glm( dep~geno*var2, family=fam, allele.lev=attributes(geno)$unique.alleles, 
+		                               control = haplo.stats::haplo.glm.control(haplo.freq.min=haplo.freq.min,...))
+		mod.b <- haplo.stats::haplo.glm( dep~geno+var2, family=fam, allele.lev=attributes(geno)$unique.alleles, 
+		                                 control = haplo.stats::haplo.glm.control(haplo.freq.min=haplo.freq.min,...))
 	}
 	else
 	{
-		mod <- haplo.glm(dep~.+geno*var2, family=fam, allele.lev=attributes(geno)$unique.alleles, control=haplo.glm.control(haplo.freq.min=haplo.freq.min,...), data=adj)
-		mod.b <- haplo.glm(dep~.+geno+var2, family=fam, allele.lev=attributes(geno)$unique.alleles, control=haplo.glm.control(haplo.freq.min=haplo.freq.min,...), data=adj)
+		mod <- haplo.stats::haplo.glm( dep~.+geno*var2, family=fam, allele.lev = attributes(geno)$unique.alleles, 
+		                               control = haplo.stats::haplo.glm.control(haplo.freq.min=haplo.freq.min,...), data=adj)
+		mod.b <- haplo.stats::haplo.glm( dep~.+geno+var2, family=fam, allele.lev=attributes(geno)$unique.alleles, 
+		                                 control = haplo.stats::haplo.glm.control(haplo.freq.min=haplo.freq.min,...), data=adj)
 	}
 
-	# Calculo la p d'interacció entre l'haplotip i la variable
+	# Calculo la p d'interacci? entre l'haplotip i la variable
 	pval.haplo <- 1-pchisq(mod$lrt$lrt-mod.b$lrt$lrt, mod$lrt$df-mod.b$lrt$df)
 
 	#  Guardo els coeficients en el vector co
 	co <- mod$coef
 	noms.coef <- names(co)
 
-	# Matriu de covariàncies
-	# Selecciono les mateixes files i columnes que a la matriu de coef, ja que la matriu q retorna mod$var.mat no té dimnames i estan tots els haplotips sense agrupar els rare. 
+	# Matriu de covari?ncies
+	# Selecciono les mateixes files i columnes que a la matriu de coef, ja que la matriu q retorna mod$var.mat no t? dimnames i estan tots els haplotips sense agrupar els rare. 
 
 	mat.cov <- mod$var.mat[1:length(mod$coef), 1:length(mod$coef)]
 	dimnames(mat.cov)<- list(names(mod$coef), names(mod$coef))
@@ -47,9 +51,9 @@ function(geno, var2, dep, adj = NULL, fam, haplo.freq.min, ...)
 	mat.coef <- matrix(nrow=1+length(mod$haplo.names), ncol=length(levels(var2)))
 	dimnames(mat.coef) <- list(c(mod$haplo.base, mod$haplo.names), levels(var2))
 
-	# Creo una matriu amb les variàncies del mateix format que la de coeficients.
+	# Creo una matriu amb les vari?ncies del mateix format que la de coeficients.
 	mat.var <- mat.coef
-	mat.coef[1,1] <- 0 # Referència
+	mat.coef[1,1] <- 0 # Refer?ncia
 
 	# creo matrius per taules marginals de row i col
 	mat.coef.c <- mat.coef
@@ -61,7 +65,7 @@ function(geno, var2, dep, adj = NULL, fam, haplo.freq.min, ...)
 	i <- 1
 	j <- 1
 
-	# Selecciono la posició dels efectes principals (de tot el conjunt elimino les interaccions)
+	# Selecciono la posici? dels efectes principals (de tot el conjunt elimino les interaccions)
 	# Omplo la primera columna (correspon als efectes principals de la geno)
 	for (i in 1:(dim(mat.coef)[1]-1))
 	{
@@ -125,7 +129,7 @@ function(geno, var2, dep, adj = NULL, fam, haplo.freq.min, ...)
 	mat.li.r <- mat.coef.r - (1.96 * sqrt(mat.var.r))
 	mat.ls.r <- mat.coef.r + (1.96 * sqrt(mat.var.r))
 
-	#En cas de regressió logística transformem els coeficients a OR's
+	#En cas de regressi? log?stica transformem els coeficients a OR's
 	if (fam=="binomial")
 	{
 		mat.or <- exp(mat.or)
@@ -161,23 +165,23 @@ function(geno, var2, dep, adj = NULL, fam, haplo.freq.min, ...)
 		j <- j + 3
 	}
 
-	# Afegeixo una primera columna a mat.fi amb la frequència dels haplotips
+	# Afegeixo una primera columna a mat.fi amb la frequ?ncia dels haplotips
 	HapFreq <- NA
 	mat.fi <- cbind(HapFreq, mat.fi)
 	mat.fi.c <- cbind(HapFreq, mat.fi.c)
 	mat.fi.r <- cbind(HapFreq, mat.fi.r)
 
 	# Arreglo les etiquetes de les files de la matriu corresponent als haplotips.
-	# Elimino de les etiquetes el "geno.", de forma que em quedi només el número (geno.1 per 1),
-	# per això selecciono a partir de la posició 6 i fins la 9 pensant que el màxim de llargada són els rare.
-	# I selecciono a partir de la segona fila pq a la primera hi ha el base que ja és sempre un número.
+	# Elimino de les etiquetes el "geno.", de forma que em quedi nom?s el n?mero (geno.1 per 1),
+	# per aix? selecciono a partir de la posici? 6 i fins la 9 pensant que el m?xim de llargada s?n els rare.
+	# I selecciono a partir de la segona fila pq a la primera hi ha el base que ja ?s sempre un n?mero.
 
 	dimnames(mat.fi)[[1]][2:nrow(mat.fi)] <- substr(dimnames(mat.fi)[[1]][2:nrow(mat.fi)], 6,9)
 	dimnames(mat.fi.c)[[1]][2:nrow(mat.fi.c)] <- substr(dimnames(mat.fi.c)[[1]][2:nrow(mat.fi.c)], 6,9)
 	dimnames(mat.fi.r)[[1]][2:nrow(mat.fi.r)] <- substr(dimnames(mat.fi.r)[[1]][2:nrow(mat.fi.r)], 6,9)
 
-	# Un cop tinc els dimnames amb números (3,4,...), li ajunto les etiquetes i freq. haplotípiques que li corresponen.
-	# Ex: geno.2, ara és 2, i correspon a CGA, freq 0.34.
+	# Un cop tinc els dimnames amb n?meros (3,4,...), li ajunto les etiquetes i freq. haplot?piques que li corresponen.
+	# Ex: geno.2, ara ?s 2, i correspon a CGA, freq 0.34.
 	i <- 1
 
 	for(i in 1:nrow(mat.fi))
@@ -201,9 +205,9 @@ function(geno, var2, dep, adj = NULL, fam, haplo.freq.min, ...)
 		}
 	}
 
-	# Ordeno la taula final per frequència haplotípica (de major a menor), deixant els rare sempre al final.
-	# I suposant que el haplobase sempre serà el més frequent i quedarà a la primera categoria ( en cas que no fos així no passaria res, només que 
-	# la categoria de referència no es mostraria a la primera fila.
+	# Ordeno la taula final per frequ?ncia haplot?pica (de major a menor), deixant els rare sempre al final.
+	# I suposant que el haplobase sempre ser? el m?s frequent i quedar? a la primera categoria ( en cas que no fos aix? no passaria res, nom?s que 
+	# la categoria de refer?ncia no es mostraria a la primera fila.
 
 	mat.fi <- mat.fi[c(order(mat.fi[1:(nrow(mat.fi)-1),c("HapFreq")], decreasing=TRUE), nrow(mat.fi)),]
 	mat.fi.c <- mat.fi.c[c(order(mat.fi.c[1:(nrow(mat.fi.c)-1),c("HapFreq")], decreasing=TRUE), nrow(mat.fi.c)),]
@@ -217,7 +221,7 @@ function(geno, var2, dep, adj = NULL, fam, haplo.freq.min, ...)
 		mat.fi.r[mat.fi.r>999] <- Inf
 	}
 
-	# Arrodoneixo a 4 decimals la frequència haplotípica i la resta a 2.
+	# Arrodoneixo a 4 decimals la frequ?ncia haplot?pica i la resta a 2.
 	mat.fi[, c("HapFreq")] <- round(mat.fi[, c("HapFreq")], 4)
 	mat.fi[, 2:ncol(mat.fi)] <- round(mat.fi[, 2:ncol(mat.fi)], 2)
 

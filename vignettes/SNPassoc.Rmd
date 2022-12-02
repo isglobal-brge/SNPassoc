@@ -28,6 +28,11 @@ vignette: >
 knitr::opts_chunk$set(comment="", warning=FALSE, message=FALSE, cache=TRUE)
 ```
 
+```{r resetUserConf, echo=FALSE, eval=TRUE}
+oldpar <- par(no.readonly = TRUE)  
+on.exit(par(oldpar))            
+```
+
 # Introduction
 
 The `SNPassoc` package contains facilities for data manipulation, tools for exploratory data analysis, convenient graphical facilities, and tools for assessing genetic association for both quantitative and categorial (case-control) traits in whole genome approaches. Genome-based studies are normally analyzed using a multistage approach. In the first step researchers are interested in assessing association between the outcome and thousands of SNPs. In a second and possibly third step, medium/large scale studies are performed in which only a few hundred of SNPs, those with a putative association found in the first step, are genotyped. `SNPassoc` is specially designed for analyzing this kind of designs. In addition, a convenience-based approach (select variants on the basis of logistical considerations such as the ease and cost of genotyping) can also be analyzed using `SNPassoc`. Different genetic models are

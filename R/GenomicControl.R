@@ -27,7 +27,8 @@ GenomicControl<-function(x, snp.sel)
   k<-length(names(x))
   attr(x,"pvalues")[,2:k]<-pOK
 
-  cat("\nlambda:\n")
+  # cat("\nlambda:\n")
+  message(lambda)
   print(lambda)
   x
 
