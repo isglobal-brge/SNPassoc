@@ -1,11 +1,12 @@
 dscore.character <- function(x, ...){
- rng <- BSgenome::snpsById(SNPlocs.Hsapiens.dbSNP144.GRCh38::SNPlocs.Hsapiens.dbSNP144.GRCh38, ids=x)
- genome(rng) <- "GRCh38.p2"
+ rng <- BSgenome::snpsById(SNPlocs.Hsapiens.dbSNP144.GRCh38::SNPlocs.Hsapiens.dbSNP144.GRCh38, 
+                           ids=x, ifnotfound="drop")
+ GenomeInfoDb::genome(rng) <- "GRCh38.p2"
  
  mafs <- GenomicScores::gscores(MafDb.1Kgenomes.phase3.GRCh38::MafDb.1Kgenomes.phase3.GRCh38, rng, pop=c("EUR_AF"))
  
  gg <- BSgenome.Hsapiens.NCBI.GRCh38::Hsapiens
- genome(gg) <- "GRCh38.p2"
+ GenomeInfoDb::genome(gg) <- "GRCh38.p2"
  
  refAlleles <- as.character(getSeq(gg, rng))
  altAlleles <- DNA_BASES[(match(refAlleles, DNA_BASES)) %% 4 + 1]
