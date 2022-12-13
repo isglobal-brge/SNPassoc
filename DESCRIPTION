@@ -1,25 +1,29 @@
 Package: SNPassoc
-Version: 2.0-18
-Date: 2022-11-13
+Version: 2.1-0
+Date: 2022-12-13
 Depends: R (>= 4.0.0)
-Imports: haplo.stats, mvtnorm, parallel, survival, tidyr, plyr,
-        ggplot2, poisbinom, Biostrings
+Imports: 
+        haplo.stats, 
+        mvtnorm, 
+        parallel, 
+        survival, 
+        tidyr, 
+        plyr,
+        ggplot2, 
+        poisbinom
 Suggests: testthat, knitr, rmarkdown, biomaRt,
         VariantAnnotation, 
         GenomicRanges, IRanges, S4Vectors, org.Hs.eg.db,
         TxDb.Hsapiens.UCSC.hg19.knownGene, 
-        SNPlocs.Hsapiens.dbSNP144.GRCh38,
-        MafDb.1Kgenomes.phase3.GRCh38, 
-        BSgenome.Hsapiens.NCBI.GRCh38, 
-        GenomicScores, 
-        BSgenome,
         BiocStyle
 Title: SNPs-Based Whole Genome Association Studies
 Authors@R: c( person(given = "Victor", family = "Moreno", role = "aut"),
               person(given = "Juan R", family = "Gonzalez", 
-              email = "juanr.gonzalez@isglobal.org", role = c("aut")),
+              email = "juanr.gonzalez@isglobal.org", role = c("aut"),
+              comment = c(ORCID = "0000-0003-3267-2146")),
               person(given = "Dolors", family = "Pelegri", 
-              email = "dolors.pelegri@isglobal.org", role = c("aut", "cre")))
+              email = "dolors.pelegri@isglobal.org", role = c("aut", "cre"),
+              comment = c(ORCID = "0000-0002-5993-3003")))
 Description: Functions to perform most of the common analysis in genome 
     association studies are implemented. These analyses include descriptive 
     statistics and exploratory analysis of missing values, calculation of 
@@ -34,5 +38,5 @@ URL: https://github.com/isglobal-brge/SNPassoc
 License: GPL (>= 2)
 Encoding: UTF-8
 VignetteBuilder: knitr
-RoxygenNote: 7.1.2
+RoxygenNote: 7.2.2
 NeedsCompilation: no

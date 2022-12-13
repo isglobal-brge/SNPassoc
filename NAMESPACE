@@ -28,11 +28,8 @@ maxstat,
 LD,
 LDplot,
 LDtable,
-dscore,
-pscore,
 getNiceTable,
 getGeneSymbol,
-dscore,
 Table.N.Per,
 Table.mean.se,
 is.Monomorphic,
@@ -49,7 +46,7 @@ importFrom("poisbinom", "dpoisbinom" )
 importFrom("parallel", "mclapply")
 importFrom("plyr", "arrange", "count")
 importFrom("grDevices", "heat.colors")
-importFrom("Biostrings", "getSeq", "DNA_BASES")
+# importFrom("Biostrings", "getSeq", "DNA_BASES")
 importFrom("graphics", "abline", "axis", "barplot", "hist", "image",
            "layout", "legend", "lines", "matplot", "par", "segments",
            "strheight", "strwidth", "text", "title")
@@ -128,10 +125,6 @@ S3method(maxstat,table)
 S3method(maxstat,setupSNP)
 S3method(maxstat,matrix)
 
-S3method(dscore,default)
-S3method(dscore,setupSNP)
-S3method(dscore,character)
-
 S3method(LD,snp)
 S3method(LD,setupSNP)
 
@@ -139,8 +132,6 @@ S3method(print,LD)
 S3method(print,LD.data.frame)
 S3method(summary,LD.data.frame)
 S3method(print,summary.LD.data.frame)
-
-S3method(plot, dscore)
 
 ##################
 # hidden functions
