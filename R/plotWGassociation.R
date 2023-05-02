@@ -2,15 +2,18 @@ plot.WGassociation <- function(x, ...){
   if (!inherits(x, "WGassociation")) 
     stop("x must be an object of class 'WGassociation'")
   
-  xx <- data.frame(SNP=rownames(x), data.frame(x)[,2:6])
-  names(xx)[6] <- "additive"
+  xx <- data.frame(SNP=rownames(x), data.frame(x)[,2:ncol(x)])
+  names(xx)[2:ncol(x)] <- gsub("log.", "", names(x)[2:ncol(x)] ) 
+  # names(xx)[6] <- "additive"
   dat <- tidyr::gather(xx, key="model", value="p.value", -"SNP")
+  # dat$model <- factor(dat$model, 
+  #                     levels=c("codominant", "dominant",
+  #                              "recessive", "overdominant",
+  #                              "additive"))
   dat$model <- factor(dat$model, 
-                      levels=c("codominant", "dominant",
-                               "recessive", "overdominant",
-                               "additive"))
+                      levels=unique(names(xx)[2:ncol(xx)]))
   
-  plt <- ggplot(dat, aes(x=dat$SNP, y=-log10(dat$p.value))) + 
+  plt <- ggplot(dat, aes(x=SNP, y=-log10(p.value))) + 
     geom_point() +
     xlab("SNPs") + ylab(expression(-log[10]("p-value"))) +
     theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
