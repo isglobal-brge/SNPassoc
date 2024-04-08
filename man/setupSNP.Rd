@@ -30,6 +30,10 @@ setupSNP(data, colSNPs, sort = FALSE, info, sep = "/", ...)
   \item{info}{if sort is TRUE a dataframe containing information 
        about the SNPs regarding their genomic position and the gene where 
        they are located}
+  \item{reorder}{how should genotypes within an individual be reordered. Possible values are
+   'common' or 'minor'. The default is 
+    \code{reorder="common"}. In that case, alleles are sorted within each individual by
+    common homozygous.}
   \item{sep}{character separator used to divide alleles in the genotypes}
   \item{...}{optional arguments}
 }
