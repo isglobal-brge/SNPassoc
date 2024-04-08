@@ -20,7 +20,7 @@
 }
 
 \usage{
-setupSNP(data, colSNPs, sort = FALSE, info, sep = "/", ...)
+setupSNP(data, colSNPs, sort = FALSE, info, sep = "/",reorder="common", ...)
 }
 
 \arguments{
