@@ -14,7 +14,7 @@
   \code{setupSNP} Convert columns in a dataframe to class 'snp'
 
   \code{summary.setupSNP} gives a summary for an object of class 'setupSNP' including 
-                     allele names, major allele frequencie, an exact thest of Hardy-Weinberg 
+                     allele names, major allele frequencie, an exact test of Hardy-Weinberg 
                      equilibrium and percentage of missing genotypes
 
 }
