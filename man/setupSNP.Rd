@@ -14,13 +14,13 @@
   \code{setupSNP} Convert columns in a dataframe to class 'snp'
 
   \code{summary.setupSNP} gives a summary for an object of class 'setupSNP' including 
-                     allele names, major allele frequencie, an exact thest of Hardy-Weinberg 
+                     allele names, major allele frequencie, an exact test of Hardy-Weinberg 
                      equilibrium and percentage of missing genotypes
 
 }
 
 \usage{
-setupSNP(data, colSNPs, sort = FALSE, info, sep = "/", ...)
+setupSNP(data, colSNPs, sort = FALSE, info, sep = "/",reorder="common", ...)
 }
 
 \arguments{
@@ -31,6 +31,10 @@ setupSNP(data, colSNPs, sort = FALSE, info, sep = "/", ...)
        about the SNPs regarding their genomic position and the gene where 
        they are located}
   \item{sep}{character separator used to divide alleles in the genotypes}
+  \item{reorder}{how should genotypes within an individual be reordered. Possible values are
+   'common' or 'minor'. The default is 
+    \code{reorder="common"}. In that case, alleles are sorted within each individual by
+    common homozygous.}
   \item{...}{optional arguments}
 }
 \value{

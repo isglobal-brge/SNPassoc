@@ -1,5 +1,5 @@
 `setupSNP` <-
-function(data, colSNPs, sort=FALSE, info, sep="/", ...)
+function(data, colSNPs, sort=FALSE, info, reorder="common", sep="/", ...)
 
 {
  if (missing(data)) 
@@ -18,12 +18,12 @@ function(data, colSNPs, sort=FALSE, info, sep="/", ...)
      info <- temp$dataSorted
      temp <- data[, pos, drop=FALSE]
      #..debug..#   dataSNPs <- mclapply(temp, snp, sep = sep, ...)
-     dataSNPs <- lapply(temp, snp, sep = sep, ...)
+     dataSNPs <- lapply(temp, snp, reorder=reorder, sep = sep, ...)
    }
  else
    { 
        #..debug..#  dataSNPs <- mclapply(data[, colSNPs, drop=FALSE], snp, sep = sep, ...)
-       dataSNPs <- lapply(data[, colSNPs, drop=FALSE], snp, sep = sep, ...)
+       dataSNPs <- lapply(data[, colSNPs, drop=FALSE], snp, reorder=reorder, sep = sep, ...)
    }
 
  dataSNPs <- data.frame(dataSNPs) 
