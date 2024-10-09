@@ -25,11 +25,11 @@
   \code{reorder} change the reference genotype
 
   \code{summary} gives a summary for an object of class 'snp' including genotype
-                     and allele frequencies and an exact thest of Hardy-Weinberg 
+                     and allele frequencies and an exact test of Hardy-Weinberg 
                      equilibrium 
 
   \code{plot}    gives a summary for an object of class 'snp' including genotype
-                     and allele frequencies and an exact thest of Hardy-Weinberg 
+                     and allele frequencies and an exact test of Hardy-Weinberg 
                      equilibrium in a plot. Barplot or pie are allowed
 
   \code{[.snp}   is a copy of [.factor modified to preserve all attributes
