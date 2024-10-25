@@ -13,7 +13,7 @@ plot.WGassociation <- function(x, ...){
   dat$model <- factor(dat$model, 
                       levels=unique(names(xx)[2:ncol(xx)]))
   
-  plt <- ggplot(dat, aes(x=SNP, y=-log10(p.value))) + 
+  plt <- ggplot(dat, aes(x=.data$SNP, y=-log10(.data$p.value))) + 
     geom_point() +
     xlab("SNPs") + ylab(expression(-log[10]("p-value"))) +
     theme(axis.text.x = element_text(angle = 90, hjust = 1)) +

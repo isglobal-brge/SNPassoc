@@ -1,3 +1,7 @@
+v2.1-1
+2024-10-25
+- Removed warnings and notes after checking the package using R-2.1.0
+
 v2.0-0
 2020-08-23
 - Added dscore function

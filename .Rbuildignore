@@ -4,6 +4,7 @@
 ^.*\.complete$
 ^\.Rproj\.user$
 memcheck.R
+^\SNPassoc.R$
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$

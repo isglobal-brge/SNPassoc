@@ -48,3 +48,4 @@ pkgdown
 ^_pkgdown\.yml$
 logo.png
 _pkgdown.yml
+SNPassoc.R
