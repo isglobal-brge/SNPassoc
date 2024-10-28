@@ -49,3 +49,4 @@ pkgdown
 logo.png
 _pkgdown.yml
 SNPassoc.R
+/vignettes/SNPassoc_cache

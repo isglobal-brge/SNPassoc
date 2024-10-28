@@ -5,15 +5,12 @@ author:
   affiliation:
   - Bioinformatics Research Group in Epidemiolgy (BRGE), Barcelona Institute for Global Health (ISGlobal)
   - Department of Mathematics, Autonomous University of Barcelona (UAB)
-  email: juanr.gonzalez@isglobal.org
 - name: Victor Moreno
   affiliation: Catalan Institute of Oncology
 date: "`r Sys.Date()`"
 package: "`r paste('SNPassoc', packageVersion('SNPassoc'))`"
 output:
-    prettydoc::html_pretty:
-        theme: cayman
-        highlight: vignette
+    rmarkdown::html_vignette:
         number_sections: yes
         toc: yes
         fig_caption: yes
@@ -213,7 +210,7 @@ head(ans.adj)
 
 `SNPassoc` is computationally limited on large genomic data. The computing time can be reduced by parallelization, specifying in the argument *mc.cores* the number of computing cores to be used. Alternatively, the function *scanWGassociation*, a C compiled function, can be used to compute a predetermined genetic model across all SNPs, passed in the argument *model*, which by default is the additive model 
 
-```{more than 1 SNP scan, eval=FALSE}
+```{r morethan1SNPscan, eval=FALSE}
 ans.fast <- scanWGassociation(casecontrol, asthma.s)
 ```
 
