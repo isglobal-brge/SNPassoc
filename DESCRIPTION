@@ -14,8 +14,7 @@ Imports:
 Suggests: testthat, knitr, rmarkdown, biomaRt,
         VariantAnnotation, 
         GenomicRanges, IRanges, S4Vectors, org.Hs.eg.db,
-        TxDb.Hsapiens.UCSC.hg19.knownGene, 
-        BiocStyle
+        TxDb.Hsapiens.UCSC.hg19.knownGene
 Title: SNPs-Based Whole Genome Association Studies
 Authors@R: c( person(given = "Victor", family = "Moreno", role = "aut"),
               person(given = "Juan R", family = "Gonzalez", 
