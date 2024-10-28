@@ -8,3 +8,4 @@ memcheck.R
 ^_pkgdown\.yml$
 ^docs$
 ^pkgdown$
+^\.github$
