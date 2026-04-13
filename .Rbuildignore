@@ -9,3 +9,5 @@ memcheck.R
 ^docs$
 ^pkgdown$
 ^\.github$
+^CRAN-SUBMISSION$
+^cran-comments\.md$

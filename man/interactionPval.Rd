@@ -72,12 +72,12 @@ SNPassoc: an R package to perform whole genome association studies. Bioinformati
 
 \examples{
 
-data(SNPs)
-datSNP<-setupSNP(SNPs,6:40,sep="")
-
-ansCod<-interactionPval(log(protein)~sex,datSNP)
-print(ansCod)
-plot(ansCod)
+    data(SNPs)
+    datSNP <- setupSNP(SNPs, 6:40, sep="")[1:10,]
+    
+    ansCod <- interactionPval(log(protein)~sex,datSNP)
+    print(ansCod)
+    plot(ansCod)
 
 }
 
